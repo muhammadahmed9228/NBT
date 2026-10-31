@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-qala-bronze: #9b7b55;
+  --color-qala-taupe-gold: #b39a79;
+  --color-qala-champagne: #d8c8b6;
+  --color-qala-cream: #f7f3ec;
+  --color-qala-espresso: #30251e;
+  --color-qala-ink: #1f1b18;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "DM Sans", sans-serif;
+}
+
+@layer base {
+  html {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+  }
+
+  body,
+  #root {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply bg-qala-cream text-qala-ink antialiased font-sans;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif;
+  }
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
