@@ -49,8 +49,8 @@ export default function CartPage() {
 
   if (items.length === 0) {
     return (
-      <div className="py-20 text-center">
-        <h2 className="mb-4 text-3xl font-medium text-qala-espresso">
+      <div className="nbt-empty-cart py-20 text-center">
+        <h2 className="mb-4 text-3xl font-medium text-nbt-espresso">
           Your Cart is Empty
         </h2>
         <p className="mb-8 text-neutral-600">
@@ -58,7 +58,7 @@ export default function CartPage() {
         </p>
         <Link
           to="/products"
-          className="bg-qala-espresso px-6 py-3 text-white transition hover:bg-qala-bronze"
+          className="bg-nbt-espresso px-6 py-3 text-white transition hover:bg-nbt-bronze"
         >
           Continue Shopping
         </Link>
@@ -67,16 +67,16 @@ export default function CartPage() {
   }
 
   return (
-    <div className="mx-auto max-w-5xl py-5 md:py-8">
-      <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-qala-bronze">Your Qala edit</p>
-      <h2 className="mb-8 text-4xl font-medium text-qala-espresso">Shopping Cart</h2>
+    <div className="nbt-cart-page mx-auto max-w-5xl py-5 md:py-8">
+      <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-nbt-bronze">Your NBT edit</p>
+      <h2 className="mb-8 text-4xl font-medium text-nbt-espresso">Shopping Cart</h2>
 
-      <div className="flex flex-col lg:flex-row gap-10">
-        <div className="flex-1 space-y-6">
+      <div className="nbt-cart-layout flex flex-col lg:flex-row gap-10">
+        <div className="nbt-cart-items flex-1 space-y-6">
           {items.map((item) => (
             <div
               key={item.cartItemId}
-              className="flex gap-4 border border-qala-champagne bg-white p-3 md:p-4"
+              className="nbt-cart-item flex gap-4 border border-nbt-champagne bg-white p-3 md:p-4"
             >
               <Link to={`/products/${item.productId}`}>
                 <img
@@ -90,11 +90,11 @@ export default function CartPage() {
                 <div>
                   <div className="flex justify-between items-start">
                     <Link to={`/products/${item.productId}`}>
-                      <h3 className="text-lg font-medium text-qala-espresso hover:text-qala-bronze">{item.name}</h3>
+                      <h3 className="text-lg font-medium text-nbt-espresso hover:text-nbt-bronze">{item.name}</h3>
                     </Link>
                     <button
                       onClick={() => dispatch(removeFromCart(item.cartItemId))}
-                      className="text-sm text-qala-bronze hover:underline"
+                      className="text-sm text-nbt-bronze hover:underline"
                     >
                       Remove
                     </button>
@@ -108,7 +108,7 @@ export default function CartPage() {
 
                   {/* NEW: Render Custom Measurements */}
                   {item.size === "CUSTOM" && item.customMeasurements && (
-                    <div className="mt-2 inline-flex flex-wrap gap-2 border border-qala-champagne bg-qala-champagne/20 p-2 text-xs text-qala-espresso">
+                    <div className="mt-2 inline-flex flex-wrap gap-2 border border-nbt-champagne bg-nbt-champagne/20 p-2 text-xs text-nbt-espresso">
                       <span className="font-bold">Custom Fit:</span>
                       {Object.entries(item.customMeasurements).map(
                         ([key, val]) => (
@@ -122,7 +122,7 @@ export default function CartPage() {
                 </div>
 
                 <div className="flex justify-between items-center mt-4">
-                  <div className="flex items-center border border-qala-champagne">
+                  <div className="flex items-center border border-nbt-champagne">
                     <button
                       onClick={() =>
                         dispatch(
@@ -132,7 +132,7 @@ export default function CartPage() {
                           }),
                         )
                       }
-                      className="px-3 py-1 transition hover:bg-qala-cream"
+                      className="px-3 py-1 transition hover:bg-nbt-cream"
                       disabled={item.quantity <= 1}
                     >
                       -
@@ -150,13 +150,13 @@ export default function CartPage() {
                         )
                       }
                       disabled={item.stock > 0 && item.quantity >= item.stock}
-                      className="px-3 py-1 transition hover:bg-qala-cream"
+                      className="px-3 py-1 transition hover:bg-nbt-cream"
                     >
                       +
                     </button>
                   </div>
                   {item.stock > 0 && item.quantity >= item.stock && (
-                    <span className="text-xs text-qala-bronze">
+                    <span className="text-xs text-nbt-bronze">
                       Maximum available: {item.stock}
                     </span>
                   )}
@@ -172,8 +172,8 @@ export default function CartPage() {
           ))}
         </div>
 
-        <div className="h-fit w-full space-y-4 border border-qala-champagne bg-qala-champagne/20 p-5 lg:w-80">
-          <h3 className="border-b border-qala-champagne pb-3 text-lg font-medium text-qala-espresso">
+        <div className="nbt-cart-summary h-fit w-full space-y-4 border border-nbt-champagne bg-nbt-champagne/20 p-5 lg:w-80">
+          <h3 className="border-b border-nbt-champagne pb-3 text-lg font-medium text-nbt-espresso">
             Order Summary
           </h3>
           <div className="flex justify-between text-neutral-600">
@@ -200,7 +200,7 @@ export default function CartPage() {
             <span>Shipping</span>
             <span>Calculated at checkout</span>
           </div>
-          <div className="flex justify-between border-t border-qala-champagne pt-3 text-lg font-bold text-qala-espresso">
+          <div className="flex justify-between border-t border-nbt-champagne pt-3 text-lg font-bold text-nbt-espresso">
             <span>Estimated Total</span>
             <span>Rs. {estimatedTotal.toLocaleString()}</span>
           </div>
@@ -212,12 +212,12 @@ export default function CartPage() {
               placeholder="Coupon Code"
               value={couponInput}
               onChange={(e) => setCouponInput(e.target.value)}
-              className="w-full border border-qala-champagne bg-white px-3 py-2 text-sm text-qala-espresso outline-none focus:border-qala-bronze"
+              className="w-full border border-nbt-champagne bg-white px-3 py-2 text-sm text-nbt-espresso outline-none focus:border-nbt-bronze"
             />
             <button
               type="submit"
               disabled={isValidatingCoupon || !couponInput.trim()}
-              className="bg-qala-espresso px-4 py-2 text-sm font-medium text-white transition hover:bg-qala-bronze disabled:opacity-50"
+              className="bg-nbt-espresso px-4 py-2 text-sm font-medium text-white transition hover:bg-nbt-bronze disabled:opacity-50"
             >
               {isValidatingCoupon ? "Applying..." : "Apply"}
             </button>
@@ -225,7 +225,7 @@ export default function CartPage() {
 
           <button
             onClick={() => navigate("/checkout")}
-            className="mt-4 w-full bg-qala-espresso py-3 font-medium text-white transition hover:bg-qala-bronze"
+            className="mt-4 w-full bg-nbt-espresso py-3 font-medium text-white transition hover:bg-nbt-bronze"
           >
             Proceed to Checkout
           </button>

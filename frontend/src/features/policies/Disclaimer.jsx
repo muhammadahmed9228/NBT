@@ -6,17 +6,17 @@ export default function Disclaimer() {
     <div className="mx-auto max-w-4xl px-4 py-10 md:py-16">
       {/* Breadcrumb Navigation */}
       <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-neutral-500">
-        <Link to="/" className="transition hover:text-qala-bronze">Home</Link>
-        <span aria-hidden="true" className="text-qala-champagne">/</span>
-        <span className="text-qala-bronze">Disclaimer</span>
+        <Link to="/" className="transition hover:text-nbt-bronze">Home</Link>
+        <span aria-hidden="true" className="text-nbt-champagne">/</span>
+        <span className="text-nbt-bronze">Disclaimer</span>
       </nav>
 
       {/* Header */}
-      <div className="mb-10 border-b border-qala-champagne pb-6">
-        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-qala-bronze">
+      <div className="mb-10 border-b border-nbt-champagne pb-6">
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-nbt-bronze">
           Legal & Compliance
         </p>
-        <h1 className="text-3xl font-medium text-qala-espresso md:text-5xl font-serif">
+        <h1 className="text-3xl font-medium text-nbt-espresso md:text-5xl font-serif">
           Disclaimer
         </h1>
         <p className="mt-3 text-xs text-neutral-500">
@@ -27,16 +27,16 @@ export default function Disclaimer() {
       {/* Content */}
       <div className="space-y-8 text-sm leading-relaxed text-neutral-700 md:text-base">
         <section className="space-y-3">
-          <h2 className="text-xl font-medium text-qala-espresso md:text-2xl font-serif">
+          <h2 className="text-xl font-medium text-nbt-espresso md:text-2xl font-serif">
             1. General Information
           </h2>
           <p>
-            The information provided by <strong className="text-qala-espresso">Qala</strong> on our website and digital channels is for general informational and shopping purposes only. While we endeavor to keep the information up to date and correct, we make no representations or warranties of any kind, express or implied, regarding the completeness, accuracy, reliability, or availability of the website content, products, or related imagery.
+            The information provided by <strong className="text-nbt-espresso">NBT</strong> on our website and digital channels is for general informational and shopping purposes only. While we endeavor to keep the information up to date and correct, we make no representations or warranties of any kind, express or implied, regarding the completeness, accuracy, reliability, or availability of the website content, products, or related imagery.
           </p>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-medium text-qala-espresso md:text-2xl font-serif">
+          <h2 className="text-xl font-medium text-nbt-espresso md:text-2xl font-serif">
             2. Handcrafted & Fabric Variations
           </h2>
           <p>
@@ -50,7 +50,7 @@ export default function Disclaimer() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-medium text-qala-espresso md:text-2xl font-serif">
+          <h2 className="text-xl font-medium text-nbt-espresso md:text-2xl font-serif">
             3. Color Representation on Digital Displays
           </h2>
           <p>
@@ -59,22 +59,22 @@ export default function Disclaimer() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-medium text-qala-espresso md:text-2xl font-serif">
+          <h2 className="text-xl font-medium text-nbt-espresso md:text-2xl font-serif">
             4. Custom Sizing & Measurements
           </h2>
           <p>
-            For items ordered with our <strong className="text-qala-espresso">Custom Sizing</strong> service, garments are tailored specifically according to the measurements submitted by the customer. Qala cannot be held responsible for fit discrepancies resulting from inaccurate or miscalculated measurements provided during checkout. Customs orders can not be returned or exchanged.
+            For items ordered with our <strong className="text-nbt-espresso">Custom Sizing</strong> service, garments are tailored specifically according to the measurements submitted by the customer. NBT cannot be held responsible for fit discrepancies resulting from inaccurate or miscalculated measurements provided during checkout. Customs orders can not be returned or exchanged.
           </p>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-medium text-qala-espresso md:text-2xl font-serif">
+          <h2 className="text-xl font-medium text-nbt-espresso md:text-2xl font-serif">
             5. Contact & Assistance
           </h2>
           <p>
             If you have questions regarding any product specifications, fabric details, or this Disclaimer, please reach out to us at{" "}
-            <a href="mailto:qala.official1@gmail.com" className="font-medium text-qala-bronze underline hover:text-qala-espresso">
-              qala.official1@gmail.com
+            <a href="mailto:nbt.official1@gmail.com" className="font-medium text-nbt-bronze underline hover:text-nbt-espresso">
+              nbt.official1@gmail.com
             </a>{" "}
             or message us directly on WhatsApp (0332-2363113)
           </p>

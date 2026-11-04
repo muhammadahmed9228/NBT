@@ -314,10 +314,10 @@ export default function AdminProductsPage() {
       ) : (
         <>
           {selectedIds.length > 0 && (
-            <div className="flex flex-wrap items-center gap-2 border border-qala-champagne bg-qala-champagne/20 p-3">
-              <span className="mr-2 text-sm font-semibold text-qala-espresso">{selectedIds.length} selected</span>
-              <button type="button" onClick={() => handleBulkAction("publish")} className="bg-qala-espresso px-3 py-2 text-xs font-semibold text-white hover:bg-qala-bronze">Mark Selected as Published</button>
-              <button type="button" onClick={() => handleBulkAction("draft")} className="border border-qala-espresso px-3 py-2 text-xs font-semibold text-qala-espresso hover:bg-qala-espresso hover:text-white">Mark Selected as Draft</button>
+            <div className="flex flex-wrap items-center gap-2 border border-nbt-champagne bg-nbt-champagne/20 p-3">
+              <span className="mr-2 text-sm font-semibold text-nbt-espresso">{selectedIds.length} selected</span>
+              <button type="button" onClick={() => handleBulkAction("publish")} className="bg-nbt-espresso px-3 py-2 text-xs font-semibold text-white hover:bg-nbt-bronze">Mark Selected as Published</button>
+              <button type="button" onClick={() => handleBulkAction("draft")} className="border border-nbt-espresso px-3 py-2 text-xs font-semibold text-nbt-espresso hover:bg-nbt-espresso hover:text-white">Mark Selected as Draft</button>
               <button type="button" onClick={() => handleBulkAction("delete")} className="bg-red-700 px-3 py-2 text-xs font-semibold text-white hover:bg-red-800">Bulk Delete</button>
             </div>
           )}
@@ -364,8 +364,8 @@ export default function AdminProductsPage() {
                           const totalStock = calculateTotalStock(product.variants);
                           return (
                             <div className="mt-2 space-y-1">
-                              <span className={`inline-block px-2 py-0.5 text-[10px] font-semibold ${totalStock === 0 ? "bg-red-100 text-red-800" : totalStock <= 3 ? "bg-amber-100 text-amber-800" : "bg-qala-champagne text-qala-espresso"}`}>{totalStock === 0 ? "Out of Stock" : totalStock <= 3 ? "Low Stock" : "In Stock"}</span>
-                              {selected && <div className="flex items-center gap-1"><select value={`${selected.variantId}:${selected.sizeId}`} onChange={(e) => { const next = slots.find((slot) => `${slot.variantId}:${slot.sizeId}` === e.target.value); setInventorySelections((current) => ({ ...current, [product._id]: next })); }} className="max-w-[120px] border border-neutral-300 px-1 py-1 text-[10px]"><option value={`${selected.variantId}:${selected.sizeId}`}>{selected.label}</option>{slots.filter((slot) => `${slot.variantId}:${slot.sizeId}` !== `${selected.variantId}:${selected.sizeId}`).map((slot) => <option key={`${slot.variantId}:${slot.sizeId}`} value={`${slot.variantId}:${slot.sizeId}`}>{slot.label}</option>)}</select><input type="number" min="0" value={selected.stock} onChange={(e) => setInventorySelections((current) => ({ ...current, [product._id]: { ...selected, stock: Number(e.target.value) } }))} className="w-14 border border-neutral-300 px-1 py-1 text-[10px]" aria-label="Stock quantity" /><button type="button" onClick={() => handleStockUpdate(product, selected)} className="bg-qala-bronze px-1.5 py-1 text-[10px] text-white hover:bg-qala-espresso">Save</button></div>}
+                              <span className={`inline-block px-2 py-0.5 text-[10px] font-semibold ${totalStock === 0 ? "bg-red-100 text-red-800" : totalStock <= 3 ? "bg-amber-100 text-amber-800" : "bg-nbt-champagne text-nbt-espresso"}`}>{totalStock === 0 ? "Out of Stock" : totalStock <= 3 ? "Low Stock" : "In Stock"}</span>
+                              {selected && <div className="flex items-center gap-1"><select value={`${selected.variantId}:${selected.sizeId}`} onChange={(e) => { const next = slots.find((slot) => `${slot.variantId}:${slot.sizeId}` === e.target.value); setInventorySelections((current) => ({ ...current, [product._id]: next })); }} className="max-w-[120px] border border-neutral-300 px-1 py-1 text-[10px]"><option value={`${selected.variantId}:${selected.sizeId}`}>{selected.label}</option>{slots.filter((slot) => `${slot.variantId}:${slot.sizeId}` !== `${selected.variantId}:${selected.sizeId}`).map((slot) => <option key={`${slot.variantId}:${slot.sizeId}`} value={`${slot.variantId}:${slot.sizeId}`}>{slot.label}</option>)}</select><input type="number" min="0" value={selected.stock} onChange={(e) => setInventorySelections((current) => ({ ...current, [product._id]: { ...selected, stock: Number(e.target.value) } }))} className="w-14 border border-neutral-300 px-1 py-1 text-[10px]" aria-label="Stock quantity" /><button type="button" onClick={() => handleStockUpdate(product, selected)} className="bg-nbt-bronze px-1.5 py-1 text-[10px] text-white hover:bg-nbt-espresso">Save</button></div>}
                             </div>
                           );
                         })()}

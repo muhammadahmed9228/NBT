@@ -75,21 +75,21 @@ export default function CollectionPage() {
   if (!collection) return <div className="py-20 text-center">Collection not found.</div>;
 
   return (
-    <div className="pb-16">
+    <div className="nbt-collection-page pb-16">
       {/* Collection Hero Banner */}
-      <div className="relative min-h-[16rem] py-12 md:py-0 md:h-80 bg-neutral-900 flex items-center justify-center text-center -mx-6 w-[calc(100%+3rem)] md:mx-0 md:w-full overflow-hidden">
+      <div className="nbt-collection-hero relative min-h-[16rem] py-12 md:py-0 md:h-80 bg-neutral-900 flex items-center justify-center text-center -mx-6 w-[calc(100%+3rem)] md:mx-0 md:w-full overflow-hidden">
         {collection.image?.url && (
           <img src={collection.image.url} alt={collection.name} className="absolute inset-0 w-full h-full object-cover opacity-40" />
         )}
-        <div className="relative z-10 text-white px-4">
+        <div className="nbt-collection-hero-content relative z-10 text-white px-4">
           <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">{collection.name}</h1>
           {collection.description && <p className="text-lg text-neutral-200 max-w-2xl mx-auto">{collection.description}</p>}
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-8 py-8">
+      <div className="nbt-collection-content max-w-7xl mx-auto px-4 md:px-8 py-8">
         {/* Sorting Controls */}
-        <div className="flex justify-between items-center mb-8 pb-4 border-b border-neutral-200">
+        <div className="nbt-catalog-header flex justify-between items-center mb-8 pb-4 border-b border-neutral-200">
           <p className="text-neutral-500 font-medium">{totalProducts} Products</p>
           <select 
             className="border border-neutral-300 px-3 py-2 rounded-md focus:outline-none text-sm font-medium"
@@ -107,7 +107,7 @@ export default function CollectionPage() {
         {/* Product Grid */}
         {products.length > 0 ? (
           <>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="nbt-product-grid nbt-catalog-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {products.map((product) => (
                 <ProductCard key={product._id} product={product} />
               ))}

@@ -3,8 +3,8 @@ import jwt from "jsonwebtoken";
 import { ApiError } from "../utils/ApiError.js";
 import { ipKeyGenerator } from "express-rate-limit";
 
-const GLOBAL_LIMIT = 200;
-const ADMIN_LIMIT = 10000; //was 2000
+const GLOBAL_LIMIT = 400;
+const ADMIN_LIMIT = 15000; //was 2000
 const WINDOW_MS = 15 * 60 * 1000;
 
 const getAdminToken = (req) => {

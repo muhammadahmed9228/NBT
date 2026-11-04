@@ -11,7 +11,7 @@ function savePosition(key, scrollY) {
   if (!key) return;
   inMemoryScrollPositions.set(key, scrollY);
   try {
-    sessionStorage.setItem(`qala_scroll_${key}`, String(scrollY));
+    sessionStorage.setItem(`nbt_scroll_${key}`, String(scrollY));
   } catch {
     // ignore
   }
@@ -23,7 +23,7 @@ function getPosition(key) {
     return inMemoryScrollPositions.get(key);
   }
   try {
-    const saved = sessionStorage.getItem(`qala_scroll_${key}`);
+    const saved = sessionStorage.getItem(`nbt_scroll_${key}`);
     if (saved !== null) {
       const num = Number(saved);
       return Number.isNaN(num) ? 0 : num;

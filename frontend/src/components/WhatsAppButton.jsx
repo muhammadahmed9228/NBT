@@ -1,7 +1,7 @@
 export default function WhatsAppButton() {
   // WhatsApp URLs require the number without the '+' sign
-  const phoneNumber = "923322363113"; 
-  const message = "Hi Qala, I need help with an Order";
+  const phoneNumber = "923235897014"; 
+  const message = "Hi NBT, I need help with an Order";
   const encodedMessage = encodeURIComponent(message);
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
  

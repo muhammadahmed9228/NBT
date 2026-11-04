@@ -1,4 +1,4 @@
-const COUPON_CODE_KEY = "qala-applied-coupon-code";
+const COUPON_CODE_KEY = "nbt-applied-coupon-code";
 
 export const getStoredCouponCode = () => {
   try {

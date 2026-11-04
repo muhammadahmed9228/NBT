@@ -148,10 +148,10 @@ export default function AdminAnnouncementsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-qala-bronze">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-nbt-bronze">
           Storefront messaging
         </p>
-        <h1 className="mt-2 text-3xl font-serif font-bold text-qala-espresso">
+        <h1 className="mt-2 text-3xl font-serif font-bold text-nbt-espresso">
           Announcement Bar
         </h1>
         <p className="mt-2 text-sm text-neutral-600">
@@ -160,7 +160,7 @@ export default function AdminAnnouncementsPage() {
       </div>
 
       {/* Live Preview Card */}
-      <div className="rounded border border-qala-champagne bg-white p-4 shadow-sm">
+      <div className="rounded border border-nbt-champagne bg-white p-4 shadow-sm">
         <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-neutral-500">
           Live Storefront Preview
         </p>
@@ -186,8 +186,8 @@ export default function AdminAnnouncementsPage() {
       </div>
 
       {/* Form Card */}
-      <form onSubmit={handleSubmit} className="space-y-4 rounded border border-qala-champagne bg-white p-5 shadow-sm">
-        <h2 className="text-base font-serif font-bold text-qala-espresso">
+      <form onSubmit={handleSubmit} className="space-y-4 rounded border border-nbt-champagne bg-white p-5 shadow-sm">
+        <h2 className="text-base font-serif font-bold text-nbt-espresso">
           {form.id ? "Edit Announcement" : "Create New Announcement"}
         </h2>
 
@@ -200,7 +200,7 @@ export default function AdminAnnouncementsPage() {
             maxLength={240}
             value={form.message}
             onChange={(e) => setForm({ ...form, message: e.target.value })}
-            className="w-full rounded border border-neutral-300 px-3 py-2 text-sm focus:border-qala-bronze focus:outline-none"
+            className="w-full rounded border border-neutral-300 px-3 py-2 text-sm focus:border-nbt-bronze focus:outline-none"
             placeholder="e.g. Free shipping on all orders over Rs. 3,000 this week"
           />
           <p className="mt-1 text-xs text-neutral-400">{form.message.length}/240 characters</p>
@@ -213,7 +213,7 @@ export default function AdminAnnouncementsPage() {
           <input
             value={form.link}
             onChange={(e) => setForm({ ...form, link: e.target.value })}
-            className="w-full rounded border border-neutral-300 px-3 py-2 text-sm focus:border-qala-bronze focus:outline-none"
+            className="w-full rounded border border-neutral-300 px-3 py-2 text-sm focus:border-nbt-bronze focus:outline-none"
             placeholder="e.g. /products or https://..."
           />
         </div>
@@ -224,7 +224,7 @@ export default function AdminAnnouncementsPage() {
               type="checkbox"
               checked={form.activeStatus}
               onChange={(e) => setForm({ ...form, activeStatus: e.target.checked })}
-              className="h-4 w-4 rounded border-neutral-300 accent-qala-espresso"
+              className="h-4 w-4 rounded border-neutral-300 accent-nbt-espresso"
             />
             Make this active now
           </label>
@@ -254,7 +254,7 @@ export default function AdminAnnouncementsPage() {
           <button
             type="submit"
             disabled={saving}
-            className="bg-qala-espresso px-5 py-2 text-sm font-semibold text-white transition hover:bg-qala-bronze disabled:opacity-50"
+            className="bg-nbt-espresso px-5 py-2 text-sm font-semibold text-white transition hover:bg-nbt-bronze disabled:opacity-50"
           >
             {saving ? "Saving..." : form.id ? "Update Announcement" : "Create Announcement"}
           </button>
@@ -272,18 +272,18 @@ export default function AdminAnnouncementsPage() {
 
       {/* Announcements List */}
       <div className="space-y-3">
-        <h2 className="text-lg font-serif font-bold text-qala-espresso">
+        <h2 className="text-lg font-serif font-bold text-nbt-espresso">
           All Announcements ({announcements.length})
         </h2>
 
         {loading ? (
           <p className="py-6 text-center text-sm text-neutral-500">Loading announcements...</p>
         ) : announcements.length === 0 ? (
-          <p className="border border-dashed border-qala-champagne bg-white p-8 text-center text-sm text-neutral-500">
+          <p className="border border-dashed border-nbt-champagne bg-white p-8 text-center text-sm text-neutral-500">
             No announcements created yet. Use the form above to add your first announcement.
           </p>
         ) : (
-          <div className="divide-y divide-qala-champagne border border-qala-champagne bg-white shadow-sm">
+          <div className="divide-y divide-nbt-champagne border border-nbt-champagne bg-white shadow-sm">
             {announcements.map((item) => (
               <div
                 key={item._id}
@@ -335,7 +335,7 @@ export default function AdminAnnouncementsPage() {
                   <button
                     type="button"
                     onClick={() => handleEdit(item)}
-                    className="text-xs font-semibold uppercase tracking-wider text-qala-bronze underline-offset-4 hover:underline"
+                    className="text-xs font-semibold uppercase tracking-wider text-nbt-bronze underline-offset-4 hover:underline"
                   >
                     Edit
                   </button>

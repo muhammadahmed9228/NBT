@@ -104,7 +104,7 @@ export default function SearchBar({ isAdmin = false, onClose }) {
 
   return (
     <div ref={wrapperRef} className="relative flex-1 max-w-md w-full z-[120]">
-      <form onSubmit={handleSubmit} className="flex w-full items-center shadow-sm">
+      <form onSubmit={handleSubmit} className="nbt-search-form flex w-full items-center">
         <div className="relative flex-1">
           <input
             ref={inputRef}
@@ -112,9 +112,9 @@ export default function SearchBar({ isAdmin = false, onClose }) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={isAdmin ? "Admin search (Products, Collections)..." : "Search products, collections..."}
-            className={`w-full rounded-l-md border border-qala-champagne bg-white/90 pl-4 ${
+            className={`nbt-search-input w-full rounded-l-md border border-nbt-champagne bg-white/90 pl-4 ${
               query ? "pr-10" : "pr-4"
-            } py-2 text-sm text-qala-ink placeholder:text-neutral-400 focus:border-qala-bronze focus:outline-none`}
+            } py-2 text-sm text-nbt-ink placeholder:text-neutral-400 focus:border-nbt-bronze focus:outline-none`}
             autoComplete="off"
           />
 
@@ -124,7 +124,7 @@ export default function SearchBar({ isAdmin = false, onClose }) {
               type="button"
               onClick={handleClearQuery}
               aria-label="Clear search text"
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 flex h-6 w-6 items-center justify-center rounded-full text-neutral-400 hover:text-qala-espresso hover:bg-neutral-100 transition-colors cursor-pointer"
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 flex h-6 w-6 items-center justify-center rounded-full text-neutral-400 hover:text-nbt-espresso hover:bg-neutral-100 transition-colors cursor-pointer"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -144,7 +144,7 @@ export default function SearchBar({ isAdmin = false, onClose }) {
 
         <button
           type="submit"
-          className="cursor-pointer shrink-0 rounded-r-md bg-qala-bronze px-4 py-2 text-sm text-white transition hover:bg-qala-espresso"
+          className="nbt-cta cursor-pointer shrink-0 rounded-r-md px-4 py-2 text-sm transition"
         >
           Search
         </button>
@@ -155,7 +155,7 @@ export default function SearchBar({ isAdmin = false, onClose }) {
             type="button"
             onClick={onClose}
             aria-label="Close search bar"
-            className="ml-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-qala-champagne bg-white text-qala-espresso hover:bg-qala-champagne/30 transition cursor-pointer md:hidden"
+            className="ml-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-nbt-champagne bg-white text-nbt-espresso hover:bg-nbt-champagne/30 transition cursor-pointer md:hidden"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -175,7 +175,7 @@ export default function SearchBar({ isAdmin = false, onClose }) {
 
       {/* Live Results Dropdown */}
       {isOpen && query.trim() !== "" && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-neutral-200 rounded-md shadow-xl overflow-hidden max-h-[70vh] overflow-y-auto z-[130]">
+        <div className="nbt-search-results absolute top-full left-0 right-0 mt-2 bg-white border border-neutral-200 rounded-md shadow-xl overflow-hidden max-h-[70vh] overflow-y-auto z-[130]">
           {loading ? (
             <div className="p-4 text-center text-sm text-neutral-500 animate-pulse">Searching...</div>
           ) : results.products.length === 0 && results.collections.length === 0 ? (

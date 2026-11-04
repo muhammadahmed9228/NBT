@@ -6,17 +6,17 @@ export default function ShippingPolicy() {
     <div className="mx-auto max-w-4xl px-4 py-10 md:py-16">
       {/* Breadcrumb Navigation */}
       <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-neutral-500">
-        <Link to="/" className="transition hover:text-qala-bronze">Home</Link>
-        <span aria-hidden="true" className="text-qala-champagne">/</span>
-        <span className="text-qala-bronze">Shipping Policy</span>
+        <Link to="/" className="transition hover:text-nbt-bronze">Home</Link>
+        <span aria-hidden="true" className="text-nbt-champagne">/</span>
+        <span className="text-nbt-bronze">Shipping Policy</span>
       </nav>
 
       {/* Header */}
-      <div className="mb-10 border-b border-qala-champagne pb-6">
-        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-qala-bronze">
+      <div className="mb-10 border-b border-nbt-champagne pb-6">
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-nbt-bronze">
           Delivery & Logistics
         </p>
-        <h1 className="text-3xl font-medium text-qala-espresso md:text-5xl font-serif">
+        <h1 className="text-3xl font-medium text-nbt-espresso md:text-5xl font-serif">
           Shipping Policy
         </h1>
       </div>
@@ -24,31 +24,31 @@ export default function ShippingPolicy() {
       {/* Content */}
       <div className="space-y-8 text-sm leading-relaxed text-neutral-700 md:text-base">
         <section className="space-y-3">
-          <h2 className="text-xl font-medium text-qala-espresso md:text-2xl font-serif">
+          <h2 className="text-xl font-medium text-nbt-espresso md:text-2xl font-serif">
             1. Processing & Handling Times
           </h2>
           <p>
             Every order is carefully inspected and packaged in our signature luxury wrapping prior to dispatch:
           </p>
           <ul className="list-disc space-y-2 pl-6 text-neutral-600">
-            <li><strong className="text-qala-espresso">Standard In-Stock Pieces:</strong> Dispatched within 1 to 2 business days.</li>
-            <li><strong className="text-qala-espresso">Custom Sizing & Made-to-Order Pieces:</strong> Require 5 to 7 business days for bespoke tailoring and quality finishing before dispatch.</li>
+            <li><strong className="text-nbt-espresso">Standard In-Stock Pieces:</strong> Dispatched within 1 to 2 business days.</li>
+            <li><strong className="text-nbt-espresso">Custom Sizing & Made-to-Order Pieces:</strong> Require 5 to 7 business days for bespoke tailoring and quality finishing before dispatch.</li>
           </ul>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-medium text-qala-espresso md:text-2xl font-serif">
+          <h2 className="text-xl font-medium text-nbt-espresso md:text-2xl font-serif">
             2. Domestic Delivery Timeframes (Pakistan)
           </h2>
           <p>We deliver nationwide across all major cities and remote destinations in Pakistan:</p>
           <ul className="list-disc space-y-2 pl-6 text-neutral-600">
-            <li><strong className="text-qala-espresso">Major Metropolitan Areas (Karachi, Lahore, Islamabad, Rawalpindi):</strong> 2 to 4 business days.</li>
-            <li><strong className="text-qala-espresso">Other Cities & Regional Towns:</strong> 3 to 6 business days.</li>
+            <li><strong className="text-nbt-espresso">Major Metropolitan Areas (Karachi, Lahore, Islamabad, Rawalpindi):</strong> 2 to 4 business days.</li>
+            <li><strong className="text-nbt-espresso">Other Cities & Regional Towns:</strong> 3 to 6 business days.</li>
           </ul>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-medium text-qala-espresso md:text-2xl font-serif">
+          <h2 className="text-xl font-medium text-nbt-espresso md:text-2xl font-serif">
             3. Shipping Rates
           </h2>
           <p>
@@ -57,7 +57,7 @@ export default function ShippingPolicy() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-medium text-qala-espresso md:text-2xl font-serif">
+          <h2 className="text-xl font-medium text-nbt-espresso md:text-2xl font-serif">
             4. Cash on Delivery (COD) & Verification
           </h2>
           <p>
@@ -66,7 +66,7 @@ export default function ShippingPolicy() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-medium text-qala-espresso md:text-2xl font-serif">
+          <h2 className="text-xl font-medium text-nbt-espresso md:text-2xl font-serif">
             5. Tracking Your Shipment
           </h2>
           <p>
@@ -75,13 +75,13 @@ export default function ShippingPolicy() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-medium text-qala-espresso md:text-2xl font-serif">
+          <h2 className="text-xl font-medium text-nbt-espresso md:text-2xl font-serif">
             6. Inquiries & Address Amendments
           </h2>
           <p>
             If you need to change your shipping address or have urgent delivery requirements, please contact us immediately at{" "}
-            <a href="qala.official1@gmail.com" className="font-medium text-qala-bronze underline hover:text-qala-espresso">
-             qala.official1@gmail.com
+            <a href="nbt.official1@gmail.com" className="font-medium text-nbt-bronze underline hover:text-nbt-espresso">
+             nbt.official1@gmail.com
             </a>{" "}
             or via our WhatsApp support helpline (0332-2363113).
           </p>

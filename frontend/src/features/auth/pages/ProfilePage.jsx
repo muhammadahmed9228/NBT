@@ -169,11 +169,12 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto py-8">
-      <h2 className="text-3xl font-serif font-bold mb-6">My Account</h2>
+    <div className="nbt-profile-page max-w-4xl mx-auto py-8">
+      <p className="nbt-eyebrow mb-2">Private wardrobe</p>
+      <h2 className="nbt-profile-title text-3xl font-serif font-bold mb-6">My Account</h2>
 
       {/* Tabs */}
-      <div className="flex space-x-6 border-b border-neutral-200 mb-8">
+      <div className="nbt-profile-tabs flex space-x-6 border-b border-neutral-200 mb-8">
         <button
           onClick={() => setActiveTab("profile")}
           className={`pb-3 text-sm font-medium transition-colors ${
@@ -197,9 +198,9 @@ export default function ProfilePage() {
       </div>
 
       {activeTab === "profile" ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="nbt-profile-cards grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Account Info Card */}
-          <div className="bg-white p-6 rounded-lg border border-neutral-200 space-y-4">
+          <div className="nbt-profile-card bg-white p-6 rounded-lg border border-neutral-200 space-y-4">
             <h3 className="text-lg font-semibold border-b pb-2">Profile Details</h3>
             <form onSubmit={handleProfileSubmit} className="space-y-4">
               <div>
@@ -231,7 +232,7 @@ export default function ProfilePage() {
           </div>
 
           {/* Change Password Card */}
-          <div className="bg-white p-6 rounded-lg border border-neutral-200 space-y-4">
+          <div className="nbt-profile-card bg-white p-6 rounded-lg border border-neutral-200 space-y-4">
             <h3 className="text-lg font-semibold border-b pb-2">Change Password</h3>
             <form onSubmit={handlePasswordSubmit} className="space-y-4">
               <div>
@@ -264,7 +265,7 @@ export default function ProfilePage() {
           </div>
         </div>
       ) : (
-        <div className="space-y-6">
+        <div className="nbt-order-history space-y-6">
           {loadingOrders ? (
             <div className="text-center py-12 text-neutral-500">Loading order history...</div>
           ) : orders.length === 0 ? (
@@ -273,7 +274,7 @@ export default function ProfilePage() {
             </div>
           ) : (
             orders.map((order) => (
-              <div key={order._id} className="bg-white border border-neutral-200 rounded-lg p-6 shadow-sm">
+              <div key={order._id} className="nbt-order-card bg-white border border-neutral-200 rounded-lg p-6 shadow-sm">
                 <div className="flex flex-col sm:flex-row justify-between sm:items-center border-b border-neutral-100 pb-4 mb-4 gap-2">
                   <div>
                     <p className="text-sm text-neutral-500">

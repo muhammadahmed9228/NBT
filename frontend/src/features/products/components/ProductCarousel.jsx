@@ -146,7 +146,7 @@ export default function ProductCarousel({
   // 1. NON-OVERFLOWING: Do NOT duplicate items, loop, or auto-scroll if all products fit on screen (e.g. 1-3 items)
   if (!isOverflowing) {
     return (
-      <div className="grid grid-cols-2 gap-x-3 gap-y-8 md:grid-cols-4 md:gap-7">
+      <div className="nbt-featured-grid grid grid-cols-2 gap-x-3 gap-y-8 md:grid-cols-4 md:gap-7">
         {products.map((product) => (
           <div
             key={product._id}
@@ -164,7 +164,7 @@ export default function ProductCarousel({
 
   return (
     <div
-      className="group relative overflow-hidden"
+      className="nbt-featured-carousel group relative overflow-hidden"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onTouchStart={handleTouchStart}
@@ -201,7 +201,7 @@ export default function ProductCarousel({
         type="button"
         onClick={handlePrev}
         aria-label="Previous products"
-        className="absolute left-1 top-[40%] -translate-y-1/2 z-20 flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-qala-bronze text-white shadow-lg transition-all duration-300 hover:bg-qala-espresso hover:scale-110 active:scale-95 cursor-pointer md:left-2 focus:outline-none"
+        className="absolute left-1 top-[40%] -translate-y-1/2 z-20 flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-nbt-bronze text-white shadow-lg transition-all duration-300 hover:bg-nbt-espresso hover:scale-110 active:scale-95 cursor-pointer md:left-2 focus:outline-none"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -223,7 +223,7 @@ export default function ProductCarousel({
         type="button"
         onClick={handleNext}
         aria-label="Next products"
-        className="absolute right-1 top-[40%] -translate-y-1/2 z-20 flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-qala-bronze text-white shadow-lg transition-all duration-300 hover:bg-qala-espresso hover:scale-110 active:scale-95 cursor-pointer md:right-2 focus:outline-none"
+        className="absolute right-1 top-[40%] -translate-y-1/2 z-20 flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-nbt-bronze text-white shadow-lg transition-all duration-300 hover:bg-nbt-espresso hover:scale-110 active:scale-95 cursor-pointer md:right-2 focus:outline-none"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

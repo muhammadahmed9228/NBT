@@ -37,24 +37,24 @@ export default function CouponBox({ subtotal, coupon, onApply, onClear }) {
   };
 
   return (
-    <div className="border-y border-qala-champagne py-4">
-      <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-qala-espresso">
+    <div className="border-y border-nbt-champagne py-4">
+      <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-nbt-espresso">
         Have a coupon?
       </p>
 
       {coupon ? (
-        <div className="flex items-center justify-between rounded border border-qala-bronze/40 bg-qala-cream/50 px-3 py-2">
+        <div className="flex items-center justify-between rounded border border-nbt-bronze/40 bg-nbt-cream/50 px-3 py-2">
           <div className="min-w-0">
             <div className="flex items-center gap-2">
-              <span className="font-mono text-sm font-bold tracking-wider text-qala-espresso">
+              <span className="font-mono text-sm font-bold tracking-wider text-nbt-espresso">
                 {coupon.code}
               </span>
-              <span className="rounded bg-qala-bronze/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-qala-bronze">
+              <span className="rounded bg-nbt-bronze/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-nbt-bronze">
                 Applied
               </span>
             </div>
             {coupon.discountAmount > 0 && (
-              <p className="mt-0.5 text-xs text-qala-bronze">
+              <p className="mt-0.5 text-xs text-nbt-bronze">
                 Saving Rs. {coupon.discountAmount.toLocaleString()}
               </p>
             )}
@@ -76,12 +76,12 @@ export default function CouponBox({ subtotal, coupon, onApply, onClear }) {
             maxLength={32}
             disabled={loading}
             autoComplete="off"
-            className="min-w-0 flex-1 border border-qala-champagne bg-white px-3 py-2 text-sm uppercase focus:border-qala-bronze focus:outline-none disabled:bg-neutral-100"
+            className="min-w-0 flex-1 border border-nbt-champagne bg-white px-3 py-2 text-sm uppercase focus:border-nbt-bronze focus:outline-none disabled:bg-neutral-100"
           />
           <button
             type="submit"
             disabled={loading || !inputCode.trim()}
-            className="bg-qala-espresso px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white transition hover:bg-qala-bronze disabled:opacity-50"
+            className="bg-nbt-espresso px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white transition hover:bg-nbt-bronze disabled:opacity-50"
           >
             {loading ? "..." : "Apply"}
           </button>

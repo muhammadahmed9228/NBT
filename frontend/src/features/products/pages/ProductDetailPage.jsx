@@ -159,8 +159,8 @@ export default function ProductDetailPage() {
     toast.success(`${product.name} added to cart!`);
   };
 
-  if (loading) return <div className="py-20 text-center text-qala-espresso">Loading...</div>;
-  if (!product) return <div className="py-20 text-center text-qala-espresso">Product not found.</div>;
+  if (loading) return <div className="py-20 text-center text-nbt-espresso">Loading...</div>;
+  if (!product) return <div className="py-20 text-center text-nbt-espresso">Product not found.</div>;
 
   // --- NEW: Pricing Logic for Display ---
   const customSurcharge = isCustomSizeSelected ? (product.customSizing?.surcharge || 0) : 0;
@@ -173,7 +173,7 @@ export default function ProductDetailPage() {
   const whatsappNumber = "923235897014";
   const currentUrl = window.location.href;
   const currentSku = isCustomSizeSelected ? "CUSTOM" : (selectedSize?.sku || "N/A");
-  const whatsappMessage = `Hello Qala! I have a question about ${product.name} (SKU: ${currentSku}). ${currentUrl}`;
+  const whatsappMessage = `Hello NBT! I have a question about ${product.name} (SKU: ${currentSku}). ${currentUrl}`;
   const encodedWhatsappMessage = encodeURIComponent(whatsappMessage);
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedWhatsappMessage}`;
   const galleryImages = selectedVariant?.images?.length > 0
@@ -217,12 +217,12 @@ export default function ProductDetailPage() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-2 py-5 sm:px-6 md:py-8">
+    <div className="nbt-product-detail mx-auto max-w-6xl px-2 py-5 sm:px-6 md:py-8">
 
       {/* NEW: Size Chart Modal */}
       {showSizeChart && product.sizeChartImage?.url && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/70 p-4">
-          <div className="relative max-h-[calc(100vh-2rem)] w-full max-w-3xl overflow-auto border border-qala-champagne bg-qala-cream p-2 shadow-2xl">
+        <div className="nbt-size-chart-modal fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/70 p-4">
+          <div className="relative max-h-[calc(100vh-2rem)] w-full max-w-3xl overflow-auto border border-nbt-champagne bg-nbt-cream p-2 shadow-2xl">
             <button
               type="button"
               onClick={() => setShowSizeChart(false)}
@@ -237,7 +237,7 @@ export default function ProductDetailPage() {
       )}
 
       {isImageViewerOpen && activeImage && (
-        <div className="fixed inset-0 z-[160] flex items-center justify-center bg-qala-espresso/90 p-3 sm:p-6">
+        <div className="nbt-image-viewer fixed inset-0 z-[160] flex items-center justify-center bg-nbt-espresso/90 p-3 sm:p-6">
           <button
             type="button"
             onClick={() => {
@@ -245,7 +245,7 @@ export default function ProductDetailPage() {
               setImageViewerScale(1);
             }}
             aria-label="Close enlarged product image"
-            className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-qala-cream text-xl text-qala-espresso transition hover:bg-qala-bronze hover:text-white"
+            className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-nbt-cream text-xl text-nbt-espresso transition hover:bg-nbt-bronze hover:text-white"
           >
             &times;
           </button>
@@ -263,7 +263,7 @@ export default function ProductDetailPage() {
                 type="button"
                 onClick={() => setImageViewerScale((scale) => Math.max(1, scale - 0.25))}
                 aria-label="Zoom out"
-                className="h-9 w-9 rounded-full bg-qala-cream text-lg text-qala-espresso transition hover:bg-qala-bronze hover:text-white"
+                className="h-9 w-9 rounded-full bg-nbt-cream text-lg text-nbt-espresso transition hover:bg-nbt-bronze hover:text-white"
               >
                 -
               </button>
@@ -271,14 +271,14 @@ export default function ProductDetailPage() {
                 type="button"
                 onClick={() => setImageViewerScale((scale) => Math.min(3, scale + 0.25))}
                 aria-label="Zoom in"
-                className="h-9 w-9 rounded-full bg-qala-cream text-lg text-qala-espresso transition hover:bg-qala-bronze hover:text-white"
+                className="h-9 w-9 rounded-full bg-nbt-cream text-lg text-nbt-espresso transition hover:bg-nbt-bronze hover:text-white"
               >
                 +
               </button>
               <button
                 type="button"
                 onClick={() => setImageViewerScale(1)}
-                className="px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-qala-cream underline underline-offset-4"
+                className="px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-nbt-cream underline underline-offset-4"
               >
                 Reset
               </button>
@@ -288,20 +288,20 @@ export default function ProductDetailPage() {
       )}
 
       <nav aria-label="Breadcrumb" className="mb-4 flex items-center gap-2 overflow-hidden text-[10px] font-semibold uppercase tracking-[0.18em] text-neutral-500 md:mb-6">
-        <Link to="/" className="shrink-0 transition hover:text-qala-bronze">Home</Link>
-        <span aria-hidden="true" className="text-qala-champagne">/</span>
-        <Link to="/products" className="shrink-0 transition hover:text-qala-bronze">Products</Link>
-        <span aria-hidden="true" className="text-qala-champagne">/</span>
-        <span className="truncate text-qala-bronze">{product.name}</span>
+        <Link to="/" className="shrink-0 transition hover:text-nbt-bronze">Home</Link>
+        <span aria-hidden="true" className="text-nbt-champagne">/</span>
+        <Link to="/products" className="shrink-0 transition hover:text-nbt-bronze">Products</Link>
+        <span aria-hidden="true" className="text-nbt-champagne">/</span>
+        <span className="truncate text-nbt-bronze">{product.name}</span>
       </nav>
 
-      <div className="flex flex-col gap-10 md:flex-row">
+      <div className="nbt-product-layout flex flex-col gap-10 md:flex-row">
 
         {/* Image Gallery */}
-        <div className="w-full md:w-1/2">
+        <div className="nbt-product-gallery w-full md:w-1/2">
           <div className="relative aspect-3/4 mb-4">
             <div
-              className="absolute inset-0 overflow-hidden bg-qala-champagne/30"
+              className="nbt-product-main-image absolute inset-0 overflow-hidden bg-nbt-champagne/30"
               onMouseEnter={() => setIsZoomVisible(true)}
               onMouseLeave={() => setIsZoomVisible(false)}
               onMouseMove={handleImageMouseMove}
@@ -344,7 +344,7 @@ export default function ProductDetailPage() {
             </div>
             {isZoomVisible && activeImage && (
               <div
-                className="pointer-events-none absolute left-full top-0 z-30 ml-4 hidden aspect-3/4 w-full border border-qala-champagne bg-qala-cream bg-no-repeat shadow-xl lg:block"
+                className="pointer-events-none absolute left-full top-0 z-30 ml-4 hidden aspect-3/4 w-full border border-nbt-champagne bg-nbt-cream bg-no-repeat shadow-xl lg:block"
                 style={{
                   backgroundImage: `url(${activeImage})`,
                   backgroundSize: "200%",
@@ -353,12 +353,12 @@ export default function ProductDetailPage() {
               />
             )}
           </div>
-          <div className="flex gap-2 overflow-x-auto no-scrollbar">
+          <div className="nbt-product-thumbnails flex gap-2 overflow-x-auto no-scrollbar">
             {galleryImages.map((img, idx) => (
               <button
                 key={idx}
                 onClick={() => setActiveImage(img.url)}
-                className={`h-24 w-20 shrink-0 border-2 ${activeImage === img.url ? "border-qala-bronze" : "border-transparent"}`}
+                className={`nbt-product-thumbnail h-24 w-20 shrink-0 border-2 ${activeImage === img.url ? "is-active border-nbt-bronze" : "border-transparent"}`}
               >
                 <img src={img.url} className="w-full h-full object-cover" alt="thumbnail view" />
               </button>
@@ -367,22 +367,22 @@ export default function ProductDetailPage() {
         </div>
 
         {/* Product Details */}
-        <div className="w-full md:w-1/2 space-y-6">
+        <div className="nbt-product-purchase-panel w-full md:w-1/2 space-y-6">
 
-          <div>
-            <h1 className="mb-2 text-3xl font-medium text-qala-espresso">{product.name}</h1>
+          <div className="nbt-product-heading">
+            <h1 className="mb-2 text-3xl font-medium text-nbt-espresso">{product.name}</h1>
             <div className="flex items-center space-x-3 text-xl">
-              <span className="font-semibold text-qala-bronze">Rs. {finalPrice.toLocaleString()}</span>
+              <span className="font-semibold text-nbt-bronze">Rs. {finalPrice.toLocaleString()}</span>
               {product.discount > 0 && (
                 <span className="text-lg text-neutral-500 line-through">Rs. {currentBasePrice.toLocaleString()}</span>
               )}
             </div>
             {isCustomSizeSelected && product.customSizing?.surcharge > 0 && (
-              <p className="mt-1 text-xs font-bold text-qala-bronze">+ Rs. {product.customSizing.surcharge.toLocaleString()} Custom Sizing Surcharge Included</p>
+              <p className="mt-1 text-xs font-bold text-nbt-bronze">+ Rs. {product.customSizing.surcharge.toLocaleString()} Custom Sizing Surcharge Included</p>
             )}
           </div>
 
-          <div className="text-sm leading-relaxed text-neutral-600 sm:text-base">
+          <div className="nbt-product-description text-sm leading-relaxed text-neutral-600 sm:text-base">
             <p className={`${!isDescriptionExpanded && product.description?.length > 220 ? "max-h-24 overflow-hidden md:max-h-none" : ""}`}>
               {product.description}
             </p>
@@ -390,7 +390,7 @@ export default function ProductDetailPage() {
               <button
                 type="button"
                 onClick={() => setIsDescriptionExpanded((expanded) => !expanded)}
-                className="mt-2 text-xs font-semibold uppercase tracking-[0.16em] text-qala-bronze underline underline-offset-4 md:hidden"
+                className="mt-2 text-xs font-semibold uppercase tracking-[0.16em] text-nbt-bronze underline underline-offset-4 md:hidden"
               >
                 {isDescriptionExpanded ? "Read Less" : "Read More"}
               </button>
@@ -399,14 +399,14 @@ export default function ProductDetailPage() {
 
           {/* Color Selection */}
           {product.variants && product.variants.length > 0 && (
-            <div>
-              <h3 className="mb-3 text-sm font-medium text-qala-espresso">Color: <span className="text-neutral-500">{selectedVariant?.colorName}</span></h3>
-              <div className="flex gap-3 mb-2">
+            <div className="nbt-option-group">
+              <h3 className="mb-3 text-sm font-medium text-nbt-espresso">Color: <span className="text-neutral-500">{selectedVariant?.colorName}</span></h3>
+              <div className="nbt-color-swatches flex gap-3 mb-2">
                 {product.variants.map((variant) => (
                   <button
                     key={variant._id}
                     onClick={() => handleVariantChange(variant)}
-                    className={`h-10 w-10 rounded-full border-2 outline-offset-2 transition-transform focus:outline-qala-bronze ${selectedVariant?._id === variant._id ? "scale-110 border-qala-bronze" : "border-transparent"}`}
+                    className={`h-10 w-10 rounded-full border-2 outline-offset-2 transition-transform focus:outline-nbt-bronze ${selectedVariant?._id === variant._id ? "scale-110 border-nbt-bronze" : "border-transparent"}`}
                     style={{ backgroundColor: variant.colorCode }}
                     title={variant.colorName}
                   />
@@ -416,22 +416,22 @@ export default function ProductDetailPage() {
           )}
 
           {/* Size Selection */}
-          <div>
+          <div className="nbt-option-group nbt-size-options">
             <div className="flex justify-between items-center mb-3">
-              <h3 className="text-sm font-medium text-qala-espresso">Size</h3>
+              <h3 className="text-sm font-medium text-nbt-espresso">Size</h3>
               <div className="flex items-center gap-4">
                 {product.sizeChartImage?.url && (
-                  <button onClick={() => setShowSizeChart(true)} className="text-xs font-bold text-qala-bronze underline hover:text-qala-espresso">
+                  <button onClick={() => setShowSizeChart(true)} className="text-xs font-bold text-nbt-bronze underline hover:text-nbt-espresso">
                     View Size Chart
                   </button>
                 )}
                 {!isCustomSizeSelected && (
-                  <span className="rounded bg-qala-champagne/40 px-2 py-1 font-mono text-xs text-neutral-500">SKU: {selectedSize?.sku}</span>
+                  <span className="rounded bg-nbt-champagne/40 px-2 py-1 font-mono text-xs text-neutral-500">SKU: {selectedSize?.sku}</span>
                 )}
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="nbt-size-buttons flex flex-wrap gap-3">
               {/* Render Standard Sizes */}
               {selectedVariant?.sizes?.map((size) => {
                 const isOutOfStock = size.stock < 1;
@@ -444,8 +444,8 @@ export default function ProductDetailPage() {
                       setIsCustomSizeSelected(false);
                     }}
                     className={`px-4 py-2 border rounded-md text-sm font-medium transition
-                      ${!isCustomSizeSelected && selectedSize?._id === size._id ? "border-qala-espresso bg-qala-espresso text-white" : "border-qala-champagne text-neutral-700 hover:border-qala-bronze"}
-                      ${isOutOfStock ? "cursor-not-allowed bg-qala-champagne/30 opacity-50 line-through" : ""}
+                      ${!isCustomSizeSelected && selectedSize?._id === size._id ? "border-nbt-espresso bg-nbt-espresso text-white" : "border-nbt-champagne text-neutral-700 hover:border-nbt-bronze"}
+                      ${isOutOfStock ? "cursor-not-allowed bg-nbt-champagne/30 opacity-50 line-through" : ""}
                     `}
                   >
                     {size.size}
@@ -458,7 +458,7 @@ export default function ProductDetailPage() {
                 <button
                   onClick={() => setIsCustomSizeSelected(true)}
                   className={`px-4 py-2 border rounded-md text-sm font-bold transition tracking-wider
-                    ${isCustomSizeSelected ? "border-qala-bronze bg-qala-bronze text-white shadow-md" : "border-qala-champagne bg-qala-champagne/30 text-qala-bronze hover:border-qala-bronze"}
+                    ${isCustomSizeSelected ? "border-nbt-bronze bg-nbt-bronze text-white shadow-md" : "border-nbt-champagne bg-nbt-champagne/30 text-nbt-bronze hover:border-nbt-bronze"}
                   `}
                 >
                   CUSTOM
@@ -468,26 +468,26 @@ export default function ProductDetailPage() {
 
             {/* Standard Size Stock Status */}
             {!isCustomSizeSelected && selectedSize && (
-              <p className={`mt-2 text-sm font-medium ${selectedSize.stock > 0 ? "text-qala-bronze" : "text-red-700"}`}>
+              <p className={`mt-2 text-sm font-medium ${selectedSize.stock > 0 ? "text-nbt-bronze" : "text-red-700"}`}>
                 {selectedSize.stock > 0 ? `${selectedSize.stock} in stock` : "Out of stock"}
               </p>
             )}
 
             {/* NEW: Custom Sizing Input Fields */}
             {isCustomSizeSelected && product.customSizing?.requiredMeasurements && (
-              <div className="mt-4 border border-qala-champagne bg-qala-champagne/20 p-4 animate-fade-in">
-                <h4 className="mb-3 text-sm font-bold text-qala-espresso">Enter Your Measurements (inches)</h4>
+              <div className="nbt-measurement-panel mt-4 border border-nbt-champagne bg-nbt-champagne/20 p-4 animate-fade-in">
+                <h4 className="mb-3 text-sm font-bold text-nbt-espresso">Enter Your Measurements (inches)</h4>
                 <div className="grid grid-cols-2 gap-4">
                   {product.customSizing.requiredMeasurements.map(field => (
                     <div key={field}>
-                      <label className="mb-1 block text-xs font-medium text-qala-espresso">{field} *</label>
+                      <label className="mb-1 block text-xs font-medium text-nbt-espresso">{field} *</label>
                       <input
                         type="text"
                         required
                         placeholder="e.g. 36"
                         value={customMeasurements[field] || ""}
                         onChange={(e) => handleCustomMeasurementChange(field, e.target.value)}
-                        className="w-full border border-qala-champagne bg-white px-3 py-2 text-sm focus:border-qala-bronze focus:outline-none"
+                        className="w-full border border-nbt-champagne bg-white px-3 py-2 text-sm focus:border-nbt-bronze focus:outline-none"
                       />
                     </div>
                   ))}
@@ -502,18 +502,18 @@ export default function ProductDetailPage() {
           </div>
 
           {/* Quantity & Add to Cart */}
-          <div className="flex gap-4 border-t border-qala-champagne pt-4">
-            <div className="flex items-center border border-qala-champagne bg-white">
+          <div className="nbt-purchase-actions flex gap-4 border-t border-nbt-champagne pt-4">
+            <div className="flex items-center border border-nbt-champagne bg-white">
               <button
                 onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                className="px-4 py-3 transition hover:bg-qala-cream"
+                className="px-4 py-3 transition hover:bg-nbt-cream"
               >
                 -
               </button>
               <span className="px-4 py-3 font-medium w-8 text-center">{quantity}</span>
               <button
                 onClick={() => setQuantity((q) => isCustomSizeSelected ? q + 1 : Math.min(selectedSize?.stock || 1, q + 1))}
-                className="px-4 py-3 transition hover:bg-qala-cream"
+                className="px-4 py-3 transition hover:bg-nbt-cream"
               >
                 +
               </button>
@@ -522,7 +522,7 @@ export default function ProductDetailPage() {
             <button
               onClick={() => handleAddToCart()}
               disabled={(!isCustomSizeSelected && (!selectedSize || selectedSize.stock < 1))}
-              className="flex-1 bg-qala-espresso py-3 font-bold tracking-wide text-white shadow-sm transition hover:bg-qala-bronze disabled:cursor-not-allowed disabled:opacity-50"
+              className="flex-1 bg-nbt-espresso py-3 font-bold tracking-wide text-white shadow-sm transition hover:bg-nbt-bronze disabled:cursor-not-allowed disabled:opacity-50"
             >
               Add to Cart
             </button>
@@ -532,18 +532,18 @@ export default function ProductDetailPage() {
             type="button"
             onClick={() => handleAddToCart(true)}
             disabled={(!isCustomSizeSelected && (!selectedSize || selectedSize.stock < 1))}
-            className="w-full border border-qala-espresso px-4 py-2.5 text-sm font-semibold tracking-wide text-qala-espresso transition hover:bg-qala-espresso hover:text-white disabled:cursor-not-allowed disabled:opacity-50 md:w-auto md:min-w-40"
+            className="nbt-buy-now w-full border border-nbt-espresso px-4 py-2.5 text-sm font-semibold tracking-wide text-nbt-espresso transition hover:bg-nbt-espresso hover:text-white disabled:cursor-not-allowed disabled:opacity-50 md:w-auto md:min-w-40"
           >
             Buy it now
           </button>
 
           {/* NEW: WhatsApp Inquiry Button */}
-          <div className="pt-2">
+          <div className="nbt-whatsapp-inquiry pt-2">
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex w-full items-center justify-center gap-2 border border-qala-bronze px-4 py-2.5 text-sm font-semibold text-qala-bronze transition-colors hover:bg-qala-bronze hover:text-white md:w-auto md:min-w-56"
+              className="flex w-full items-center justify-center gap-2 border border-nbt-bronze px-4 py-2.5 text-sm font-semibold text-nbt-bronze transition-colors hover:bg-nbt-bronze hover:text-white md:w-auto md:min-w-56"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.878-.788-1.472-1.761-1.645-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
@@ -553,10 +553,10 @@ export default function ProductDetailPage() {
           </div>
 
           {/* NEW: Disclaimer */}
-          <div className="mt-6 border-t border-qala-champagne pt-4">
+          <div className="nbt-product-disclaimer mt-6 border-t border-nbt-champagne pt-4">
             <button
               onClick={() => setIsDisclaimerExpanded(!isDisclaimerExpanded)}
-              className="flex w-full items-center justify-between py-2 text-sm font-semibold text-qala-espresso hover:text-qala-bronze"
+              className="flex w-full items-center justify-between py-2 text-sm font-semibold text-nbt-espresso hover:text-nbt-bronze"
             >
               <span>Disclaimer</span>
               <span className="text-lg leading-none">{isDisclaimerExpanded ? "−" : "+"}</span>
@@ -573,16 +573,16 @@ export default function ProductDetailPage() {
 
       {/* Related Products Carousel */}
       {relatedProducts.length > 0 && (
-        <section className="mt-16 border-t border-qala-champagne/70 pt-10">
+        <section className="nbt-related-products mt-16 border-t border-nbt-champagne/70 pt-10">
           <div className="mb-6">
-            <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-qala-bronze">
+            <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-nbt-bronze">
               Curated for you
             </p>
-            <h2 className="text-3xl font-medium text-qala-espresso md:text-4xl">
+            <h2 className="text-3xl font-medium text-nbt-espresso md:text-4xl">
               You May Also Like
             </h2>
           </div>
-          <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-x-8">
+          <div className="nbt-related-grid grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-x-8">
             {relatedProducts.slice(0, 4).map((relatedProduct) => (
               <ProductCard key={relatedProduct._id} product={relatedProduct} />
             ))}

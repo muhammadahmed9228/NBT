@@ -6,17 +6,17 @@ export default function PrivacyPage() {
     <div className="mx-auto max-w-4xl px-4 py-10 md:py-16">
       {/* Breadcrumb Navigation */}
       <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-neutral-500">
-        <Link to="/" className="transition hover:text-qala-bronze">Home</Link>
-        <span aria-hidden="true" className="text-qala-champagne">/</span>
-        <span className="text-qala-bronze">Privacy Policy</span>
+        <Link to="/" className="transition hover:text-nbt-bronze">Home</Link>
+        <span aria-hidden="true" className="text-nbt-champagne">/</span>
+        <span className="text-nbt-bronze">Privacy Policy</span>
       </nav>
 
       {/* Header */}
-      <div className="mb-10 border-b border-qala-champagne pb-6">
-        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-qala-bronze">
+      <div className="mb-10 border-b border-nbt-champagne pb-6">
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-nbt-bronze">
           Trust & Confidentiality
         </p>
-        <h1 className="text-3xl font-medium text-qala-espresso md:text-5xl font-serif">
+        <h1 className="text-3xl font-medium text-nbt-espresso md:text-5xl font-serif">
           Privacy Policy
         </h1>
         <p className="mt-3 text-xs text-neutral-500">
@@ -27,28 +27,28 @@ export default function PrivacyPage() {
       {/* Content */}
       <div className="space-y-8 text-sm leading-relaxed text-neutral-700 md:text-base">
         <section className="space-y-3">
-          <h2 className="text-xl font-medium text-qala-espresso md:text-2xl font-serif">
+          <h2 className="text-xl font-medium text-nbt-espresso md:text-2xl font-serif">
             1. Our Commitment to Your Privacy
           </h2>
           <p>
-            At <strong className="text-qala-espresso">Qala</strong>, we value and respect your trust. This Privacy Policy outlines how we collect, use, protect, and handle your personal information when you visit our website, register an account, or make a purchase with us.
+            At <strong className="text-nbt-espresso">NBT</strong>, we value and respect your trust. This Privacy Policy outlines how we collect, use, protect, and handle your personal information when you visit our website, register an account, or make a purchase with us.
           </p>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-medium text-qala-espresso md:text-2xl font-serif">
+          <h2 className="text-xl font-medium text-nbt-espresso md:text-2xl font-serif">
             2. Information We Collect
           </h2>
           <p>We may collect personal details when you interact with our platform, including:</p>
           <ul className="list-disc space-y-2 pl-6 text-neutral-600">
-            <li><strong className="text-qala-espresso">Personal Identification:</strong> Full name, email address, contact phone number, and delivery address.</li>
-            <li><strong className="text-qala-espresso">Order & Custom Sizing Details:</strong> Product choices, sizing specifications, and bespoke custom measurement records.</li>
-            <li><strong className="text-qala-espresso">Technical & Usage Data:</strong> IP address, device type, browser settings, operating system, and on-site navigation patterns to optimize your shopping experience.</li>
+            <li><strong className="text-nbt-espresso">Personal Identification:</strong> Full name, email address, contact phone number, and delivery address.</li>
+            <li><strong className="text-nbt-espresso">Order & Custom Sizing Details:</strong> Product choices, sizing specifications, and bespoke custom measurement records.</li>
+            <li><strong className="text-nbt-espresso">Technical & Usage Data:</strong> IP address, device type, browser settings, operating system, and on-site navigation patterns to optimize your shopping experience.</li>
           </ul>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-medium text-qala-espresso md:text-2xl font-serif">
+          <h2 className="text-xl font-medium text-nbt-espresso md:text-2xl font-serif">
             3. How We Use Your Information
           </h2>
           <p>Your information is used strictly to deliver an exceptional luxury shopping experience:</p>
@@ -62,20 +62,20 @@ export default function PrivacyPage() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-medium text-qala-espresso md:text-2xl font-serif">
+          <h2 className="text-xl font-medium text-nbt-espresso md:text-2xl font-serif">
             4. Information Sharing & Third Parties
           </h2>
           <p>
-            Qala does not sell, rent, or trade your personal data to third parties for marketing purposes. We share necessary data only with trusted partners essential for service execution:
+            NBT does not sell, rent, or trade your personal data to third parties for marketing purposes. We share necessary data only with trusted partners essential for service execution:
           </p>
           <ul className="list-disc space-y-2 pl-6 text-neutral-600">
-            <li><strong className="text-qala-espresso">Logistics & Couriers:</strong> Delivery address and contact number are provided to our trusted courier partners (e.g., Leopard, TCS, Trax) solely for fulfillment.</li>
-            <li><strong className="text-qala-espresso">Payment Gateways:</strong> Secure, encrypted financial transaction processing.</li>
+            <li><strong className="text-nbt-espresso">Logistics & Couriers:</strong> Delivery address and contact number are provided to our trusted courier partners (e.g., Leopard, TCS, Trax) solely for fulfillment.</li>
+            <li><strong className="text-nbt-espresso">Payment Gateways:</strong> Secure, encrypted financial transaction processing.</li>
           </ul>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-medium text-qala-espresso md:text-2xl font-serif">
+          <h2 className="text-xl font-medium text-nbt-espresso md:text-2xl font-serif">
             5. Data Security & Storage
           </h2>
           <p>
@@ -84,13 +84,13 @@ export default function PrivacyPage() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-medium text-qala-espresso md:text-2xl font-serif">
+          <h2 className="text-xl font-medium text-nbt-espresso md:text-2xl font-serif">
             6. Contact Our Privacy Team
           </h2>
           <p>
             If you wish to review, update, or request deletion of your personal records, please reach out to us at{" "}
-            <a href="mailto:privacy@qala.pk" className="font-medium text-qala-bronze underline hover:text-qala-espresso">
-              privacy@qala.pk
+            <a href="mailto:privacy@NBT.pk" className="font-medium text-nbt-bronze underline hover:text-nbt-espresso">
+              privacy@NBT.pk
             </a>.
           </p>
         </section>

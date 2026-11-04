@@ -10,6 +10,8 @@ import logoImg from "../../../assets/logo.jpeg";
 import { Turnstile } from '@marsidev/react-turnstile';
 import { applyCoupon, removeCoupon } from "../../cart/cartSlice";
 
+const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY;
+
 export default function CheckoutPage() {
   const { items, coupon } = useSelector((state) => state.cart);
   const { user, isAuthenticated } = useSelector((state) => state.auth);
@@ -165,113 +167,113 @@ export default function CheckoutPage() {
   };
 
   return (
-    <div className="min-h-screen bg-qala-cream">
-      <header className="sticky top-0 z-40 border-b border-qala-champagne bg-qala-cream/95 backdrop-blur-md">
+    <div className="nbt-checkout-page min-h-screen bg-nbt-cream">
+      <header className="sticky top-0 z-40 border-b border-nbt-champagne bg-nbt-cream/95 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-          <Link to="/" aria-label="Qala home" className="flex items-center gap-2">
-            <img src={logoImg} alt="Qala Logo" className="h-10 w-auto object-contain" />
-            <span className="hidden text-sm font-semibold uppercase tracking-[0.2em] text-qala-espresso sm:inline">Qala</span>
+          <Link to="/" aria-label="NBT home" className="flex items-center gap-2">
+            <img src={logoImg} alt="NBT Logo" className="h-10 w-auto object-contain" />
+            <span className="hidden text-sm font-semibold uppercase tracking-[0.2em] text-nbt-espresso sm:inline">NBT</span>
           </Link>
 
-          <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.12em] text-qala-espresso sm:gap-5">
+          <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.12em] text-nbt-espresso sm:gap-5">
             <button
               type="button"
               onClick={() => dispatch(toggleCart())}
               aria-label="Open cart"
-              className="relative flex h-9 w-9 items-center justify-center text-qala-espresso transition hover:text-qala-bronze"
+              className="relative flex h-9 w-9 items-center justify-center text-nbt-espresso transition hover:text-nbt-bronze"
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-5 w-5" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 4h2l1.4 11.2a2 2 0 0 0 2 1.8h7.8a2 2 0 0 0 2-1.6L20.5 8H5.4" />
                 <path strokeLinecap="round" d="M9 20h.01M17 20h.01" />
               </svg>
-              {items.length > 0 && <span className="absolute right-0 top-0 min-w-4 rounded-full bg-qala-bronze px-1 text-center text-[9px] font-bold text-white">{items.reduce((total, item) => total + item.quantity, 0)}</span>}
+              {items.length > 0 && <span className="absolute right-0 top-0 min-w-4 rounded-full bg-nbt-bronze px-1 text-center text-[9px] font-bold text-white">{items.reduce((total, item) => total + item.quantity, 0)}</span>}
             </button>
           </div>
         </div>
       </header>
 
-      <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 md:py-8">
-      <h2 className="text-3xl font-serif font-bold mb-8">Checkout</h2>
+      <div className="nbt-checkout-content mx-auto max-w-6xl px-4 py-6 sm:px-6 md:py-8">
+      <h2 className="nbt-checkout-title text-3xl font-serif font-bold mb-8">Checkout</h2>
       
-      <div className="flex flex-col lg:flex-row gap-10">
+      <div className="nbt-checkout-layout flex flex-col lg:flex-row gap-10">
         {/* Checkout Form */}
         <div className="flex-1">
           <form onSubmit={handleSubmit} className="space-y-8">
             {/* Contact Information */}
-            <div className="bg-white p-6 rounded-lg border border-neutral-200 shadow-sm">
+            <div className="nbt-checkout-section bg-white p-6 rounded-lg border border-neutral-200 shadow-sm">
               <div className="flex justify-between items-center mb-4">
                 <h3 className="text-xl font-semibold">Contact</h3>
                 {!isAuthenticated && (
-                  <Link to="/login" className="text-sm text-qala-bronze hover:underline">Sign in</Link>
+                  <Link to="/login" className="text-sm text-nbt-bronze hover:underline">Sign in</Link>
                 )}
               </div>
               <div className="space-y-4">
                 <div>
-                  <input type="text" placeholder="Email or mobile phone number" name="email" required value={formData.email} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-qala-bronze focus:border-qala-bronze" />
+                  <input type="text" placeholder="Email or mobile phone number" name="email" required value={formData.email} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-nbt-bronze focus:border-nbt-bronze" />
                 </div>
                 <div className="flex items-center gap-2 mt-2">
-                  <input type="checkbox" id="newsOffers" name="newsOffers" checked={formData.newsOffers} onChange={handleChange} className="w-4 h-4 text-qala-bronze rounded focus:ring-qala-bronze" />
+                  <input type="checkbox" id="newsOffers" name="newsOffers" checked={formData.newsOffers} onChange={handleChange} className="w-4 h-4 text-nbt-bronze rounded focus:ring-nbt-bronze" />
                   <label htmlFor="newsOffers" className="text-sm text-neutral-600">Email me with news and offers</label>
                 </div>
               </div>
             </div>
 
             {/* Delivery/ Shipping Address */}
-            <div className="bg-white p-6 rounded-lg border border-neutral-200 shadow-sm mt-8">
+            <div className="nbt-checkout-section bg-white p-6 rounded-lg border border-neutral-200 shadow-sm mt-8">
               <h3 className="text-xl font-semibold mb-4">Delivery</h3>
               <div className="space-y-3 flex flex-col">
                 <div>
-                  <select name="country" value={formData.country} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-qala-bronze focus:border-qala-bronze">
+                  <select name="country" value={formData.country} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-nbt-bronze focus:border-nbt-bronze">
                     <option value="Pakistan">Pakistan</option>
                   </select>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  <input type="text" placeholder="First name (optional)" name="name" value={formData.name} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-qala-bronze focus:border-qala-bronze" />
-                  <input type="text" placeholder="Last name" name="lastName" className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-qala-bronze focus:border-qala-bronze" />
+                  <input type="text" placeholder="First name (optional)" name="name" value={formData.name} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-nbt-bronze focus:border-nbt-bronze" />
+                  <input type="text" placeholder="Last name" name="lastName" className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-nbt-bronze focus:border-nbt-bronze" />
                 </div>
                 <div>
-                  <input type="text" placeholder="Address" name="address" required value={formData.address} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-qala-bronze focus:border-qala-bronze" />
+                  <input type="text" placeholder="Address" name="address" required value={formData.address} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-nbt-bronze focus:border-nbt-bronze" />
                 </div>
                 <div>
-                  <input type="text" placeholder="Apartment, suite, etc. (optional)" name="apartment" value={formData.apartment} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-qala-bronze focus:border-qala-bronze" />
+                  <input type="text" placeholder="Apartment, suite, etc. (optional)" name="apartment" value={formData.apartment} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-nbt-bronze focus:border-nbt-bronze" />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  <input type="text" placeholder="City" name="city" required value={formData.city} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-qala-bronze focus:border-qala-bronze" />
-                  <input type="text" placeholder="Postal code (optional)" name="postalCode" value={formData.postalCode} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-qala-bronze focus:border-qala-bronze" />
+                  <input type="text" placeholder="City" name="city" required value={formData.city} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-nbt-bronze focus:border-nbt-bronze" />
+                  <input type="text" placeholder="Postal code (optional)" name="postalCode" value={formData.postalCode} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-nbt-bronze focus:border-nbt-bronze" />
                 </div>
                 <div>
-                  <input type="text" placeholder="Phone" name="phone" required value={formData.phone} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-qala-bronze focus:border-qala-bronze" />
+                  <input type="text" placeholder="Phone" name="phone" required value={formData.phone} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-nbt-bronze focus:border-nbt-bronze" />
                 </div>
                 <div className="flex items-center gap-2 mt-2">
-                  <input type="checkbox" id="saveInfo" name="saveInfo" checked={formData.saveInfo} onChange={handleChange} className="w-4 h-4 text-qala-bronze rounded focus:ring-qala-bronze" />
+                  <input type="checkbox" id="saveInfo" name="saveInfo" checked={formData.saveInfo} onChange={handleChange} className="w-4 h-4 text-nbt-bronze rounded focus:ring-nbt-bronze" />
                   <label htmlFor="saveInfo" className="text-sm text-neutral-600">Save this information for next time</label>
                 </div>
               </div>
             </div>
 
             {/* Shipping method */}
-            <div className="mt-8">
+            <div className="nbt-checkout-section nbt-shipping-method mt-8">
               <h3 className="text-xl font-semibold mb-4">Shipping method</h3>
-              <div className="bg-neutral-50 p-4 border border-qala-bronze/50 rounded-md flex justify-between items-center bg-blue-50/30">
+              <div className="bg-neutral-50 p-4 border border-nbt-bronze/50 rounded-md flex justify-between items-center bg-blue-50/30">
                 <span className="text-sm text-neutral-700">Flat Rate</span>
                 <span className="text-sm font-semibold">Rs 250.00</span>
               </div>
             </div>
 
             {/* Payment Method */}
-            <div className="mt-8">
+            <div className="nbt-checkout-section nbt-payment-section mt-8">
               <h3 className="text-xl font-semibold mb-2">Payment</h3>
               <p className="text-xs text-neutral-500 mb-4">All transactions are secure and encrypted.</p>
               
               <div className="bg-white border border-neutral-200 rounded-md overflow-hidden">
                 <label className={`flex items-center space-x-3 p-4 border-b border-neutral-200 cursor-pointer ${formData.paymentMethod === 'COD' ? 'bg-neutral-50/50' : ''}`}>
-                  <input type="radio" name="paymentMethod" value="COD" checked={formData.paymentMethod === 'COD'} onChange={handleChange} className="w-4 h-4 text-qala-bronze focus:ring-qala-bronze" />
+                  <input type="radio" name="paymentMethod" value="COD" checked={formData.paymentMethod === 'COD'} onChange={handleChange} className="w-4 h-4 text-nbt-bronze focus:ring-nbt-bronze" />
                   <span className="font-medium text-sm">Cash on Delivery (COD)</span>
                 </label>
                 
                 <div className="flex flex-col">
                   <label className={`flex items-center space-x-3 p-4 cursor-pointer ${formData.paymentMethod === 'BANK_TRANSFER' ? 'bg-blue-50 border-b border-blue-100' : ''}`}>
-                    <input type="radio" name="paymentMethod" value="BANK_TRANSFER" checked={formData.paymentMethod === 'BANK_TRANSFER'} onChange={handleChange} className="w-4 h-4 text-qala-bronze focus:ring-qala-bronze" />
+                    <input type="radio" name="paymentMethod" value="BANK_TRANSFER" checked={formData.paymentMethod === 'BANK_TRANSFER'} onChange={handleChange} className="w-4 h-4 text-nbt-bronze focus:ring-nbt-bronze" />
                     <span className="font-medium text-sm">Pay Online/Bank And Get Rs,100 OFF</span>
                   </label>
                   {formData.paymentMethod === 'BANK_TRANSFER' && (
@@ -287,42 +289,42 @@ export default function CheckoutPage() {
             </div>
 
             {/* Billing address */}
-            <div className="mt-8">
+            <div className="nbt-checkout-section nbt-billing-section mt-8">
               <h3 className="text-xl font-semibold mb-4">Billing address</h3>
               <div className="bg-white border border-neutral-200 rounded-md overflow-hidden">
                 <label className={`flex items-center space-x-3 p-4 border-b border-neutral-200 cursor-pointer ${formData.billingOption === 'same' ? 'bg-neutral-50/50' : ''}`}>
-                  <input type="radio" name="billingOption" value="same" checked={formData.billingOption === 'same'} onChange={handleChange} className="w-4 h-4 text-qala-bronze focus:ring-qala-bronze" />
+                  <input type="radio" name="billingOption" value="same" checked={formData.billingOption === 'same'} onChange={handleChange} className="w-4 h-4 text-nbt-bronze focus:ring-nbt-bronze" />
                   <span className="font-medium text-sm">Same as shipping address</span>
                 </label>
                 
                 <div className="flex flex-col">
                   <label className={`flex items-center space-x-3 p-4 cursor-pointer ${formData.billingOption === 'different' ? 'bg-blue-50 border-b border-blue-100' : ''}`}>
-                    <input type="radio" name="billingOption" value="different" checked={formData.billingOption === 'different'} onChange={handleChange} className="w-4 h-4 text-qala-bronze focus:ring-qala-bronze" />
+                    <input type="radio" name="billingOption" value="different" checked={formData.billingOption === 'different'} onChange={handleChange} className="w-4 h-4 text-nbt-bronze focus:ring-nbt-bronze" />
                     <span className="font-medium text-sm">Use a different billing address</span>
                   </label>
                   {formData.billingOption === 'different' && (
                     <div className="bg-neutral-50 p-5 space-y-3 flex flex-col border-t border-neutral-200">
                       <div>
-                        <select name="billingAddress.country" value={formData.billingAddress.country} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-qala-bronze focus:border-qala-bronze">
+                        <select name="billingAddress.country" value={formData.billingAddress.country} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-nbt-bronze focus:border-nbt-bronze">
                           <option value="Pakistan">Pakistan</option>
                         </select>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        <input type="text" placeholder="First name (optional)" className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-qala-bronze focus:border-qala-bronze" />
-                        <input type="text" placeholder="Last name" className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-qala-bronze focus:border-qala-bronze" />
+                        <input type="text" placeholder="First name (optional)" className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-nbt-bronze focus:border-nbt-bronze" />
+                        <input type="text" placeholder="Last name" className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-nbt-bronze focus:border-nbt-bronze" />
                       </div>
                       <div>
-                        <input type="text" placeholder="Address" name="billingAddress.address" required value={formData.billingAddress.address} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-qala-bronze focus:border-qala-bronze" />
+                        <input type="text" placeholder="Address" name="billingAddress.address" required value={formData.billingAddress.address} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-nbt-bronze focus:border-nbt-bronze" />
                       </div>
                       <div>
-                        <input type="text" placeholder="Apartment, suite, etc. (optional)" name="billingAddress.apartment" value={formData.billingAddress.apartment} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-qala-bronze focus:border-qala-bronze" />
+                        <input type="text" placeholder="Apartment, suite, etc. (optional)" name="billingAddress.apartment" value={formData.billingAddress.apartment} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-nbt-bronze focus:border-nbt-bronze" />
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        <input type="text" placeholder="City" name="billingAddress.city" required value={formData.billingAddress.city} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-qala-bronze focus:border-qala-bronze" />
-                        <input type="text" placeholder="Postal code (optional)" name="billingAddress.postalCode" value={formData.billingAddress.postalCode} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-qala-bronze focus:border-qala-bronze" />
+                        <input type="text" placeholder="City" name="billingAddress.city" required value={formData.billingAddress.city} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-nbt-bronze focus:border-nbt-bronze" />
+                        <input type="text" placeholder="Postal code (optional)" name="billingAddress.postalCode" value={formData.billingAddress.postalCode} onChange={handleChange} className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-nbt-bronze focus:border-nbt-bronze" />
                       </div>
                       <div>
-                        <input type="text" placeholder="Phone (optional)" className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-qala-bronze focus:border-qala-bronze" />
+                        <input type="text" placeholder="Phone (optional)" className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-1 focus:ring-nbt-bronze focus:border-nbt-bronze" />
                       </div>
                     </div>
                   )}
@@ -331,7 +333,7 @@ export default function CheckoutPage() {
             </div>
 
             {/* Mobile Order Summary (Visible on mobile screens < lg) */}
-            <div className="block lg:hidden bg-white rounded-lg border border-neutral-200 p-4 sm:p-5 shadow-sm space-y-4">
+            <div className="nbt-mobile-order-summary block lg:hidden bg-white rounded-lg border border-neutral-200 p-4 sm:p-5 shadow-sm space-y-4">
               <div className="flex items-center justify-between border-b border-neutral-200 pb-3">
                 <div className="flex items-center gap-2">
                   <h3 className="text-base font-bold text-neutral-900">Order Summary</h3>
@@ -343,7 +345,7 @@ export default function CheckoutPage() {
                   <button
                     type="button"
                     onClick={() => setIsMobileSummaryExpanded(!isMobileSummaryExpanded)}
-                    className="text-xs font-semibold text-qala-bronze hover:underline flex items-center gap-1 focus:outline-none"
+                    className="text-xs font-semibold text-nbt-bronze hover:underline flex items-center gap-1 focus:outline-none"
                   >
                     <span>{isMobileSummaryExpanded ? "Show 1 item" : `View all (${items.length})`}</span>
                     <svg
@@ -373,7 +375,7 @@ export default function CheckoutPage() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <Link to={`/products/${item.productId}`}>
-                          <p className="font-semibold text-neutral-900 truncate hover:text-qala-bronze">{item.name}</p>
+                          <p className="font-semibold text-neutral-900 truncate hover:text-nbt-bronze">{item.name}</p>
                         </Link>
                         <p className="text-neutral-500 text-xs mt-0.5">{item.color} / {item.size}</p>
                         <p className="font-medium text-neutral-900 mt-1">Rs. {(calculateItemPrice(item) * item.quantity).toLocaleString()}</p>
@@ -395,7 +397,7 @@ export default function CheckoutPage() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <Link to={`/products/${items[0].productId}`}>
-                          <p className="font-semibold text-neutral-900 truncate hover:text-qala-bronze">{items[0].name}</p>
+                          <p className="font-semibold text-neutral-900 truncate hover:text-nbt-bronze">{items[0].name}</p>
                         </Link>
                         <p className="text-neutral-500 text-xs mt-0.5">{items[0].color} / {items[0].size}</p>
                         <p className="font-medium text-neutral-900 mt-1">Rs. {(calculateItemPrice(items[0]) * items[0].quantity).toLocaleString()}</p>
@@ -406,7 +408,7 @@ export default function CheckoutPage() {
                     <button
                       type="button"
                       onClick={() => setIsMobileSummaryExpanded(true)}
-                      className="mt-2 text-xs text-neutral-500 hover:text-qala-bronze underline block text-left"
+                      className="mt-2 text-xs text-neutral-500 hover:text-nbt-bronze underline block text-left"
                     >
                       +{items.length - 1} more {items.length - 1 === 1 ? "item" : "items"} in your order (Click to view)
                     </button>
@@ -468,7 +470,7 @@ export default function CheckoutPage() {
                       handleApplyCoupon(e);
                     }
                   }}
-                  className="w-full border border-neutral-300 bg-neutral-50 px-3 py-2 text-sm text-neutral-900 outline-none rounded-md focus:bg-white focus:border-qala-bronze"
+                  className="w-full border border-neutral-300 bg-neutral-50 px-3 py-2 text-sm text-neutral-900 outline-none rounded-md focus:bg-white focus:border-nbt-bronze"
                 />
                 <button
                   type="button"
@@ -483,20 +485,20 @@ export default function CheckoutPage() {
 
             <div className="py-2 flex justify-center">
               <Turnstile 
-                siteKey="0x4AAAAAAEyCT9dIF1IcOxCK" 
+                siteKey={turnstileSiteKey}
                 onSuccess={(token) => setTurnstileToken(token)}
                 onExpire={() => setTurnstileToken(null)}
               />
             </div>
 
-            <button type="submit" disabled={submitting} className="w-full bg-qala-espresso text-white py-4 rounded-md hover:bg-[#126298] transition font-bold text-lg disabled:opacity-50">
+            <button type="submit" disabled={submitting} className="w-full bg-nbt-espresso text-white py-4 rounded-md hover:bg-[#126298] transition font-bold text-lg disabled:opacity-50">
               {submitting ? "Processing Order..." : "Complete order"}
             </button>
           </form>
         </div>
 
         {/* Order Summary (Desktop Sidebar only) */}
-        <div className="hidden lg:block lg:w-96 h-fit bg-neutral-50 border-l border-neutral-200 p-6 space-y-4">
+        <div className="nbt-desktop-order-summary hidden lg:block lg:w-96 h-fit bg-neutral-50 border-l border-neutral-200 p-6 space-y-4">
           <h3 className="text-lg font-bold border-b border-neutral-200 pb-3">Order Summary</h3>
           <div className="space-y-4 mb-4 max-h-60 overflow-y-auto pr-2">
             {items.map((item) => (
@@ -509,7 +511,7 @@ export default function CheckoutPage() {
                 </div>
                 <div className="flex-1">
                   <Link to={`/products/${item.productId}`}>
-                    <p className="font-semibold line-clamp-1 hover:text-qala-bronze">{item.name}</p>
+                    <p className="font-semibold line-clamp-1 hover:text-nbt-bronze">{item.name}</p>
                   </Link>
                   <p className="text-neutral-500 text-xs">{item.color} / {item.size}</p>
                   <p className="font-medium mt-1">Rs. {(calculateItemPrice(item) * item.quantity).toLocaleString()}</p>

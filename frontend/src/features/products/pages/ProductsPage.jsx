@@ -100,13 +100,16 @@ export default function ProductsPage() {
   };
 
   return (
-    <div className="py-8">
-      <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
-        <h2 className="text-3xl font-serif font-bold">All Products</h2>
+    <div className="nbt-products-page py-8">
+      <div className="nbt-catalog-header flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+        <div>
+          <p className="nbt-eyebrow mb-2">The collection</p>
+          <h2 className="text-4xl font-serif font-medium md:text-5xl">All Products</h2>
+        </div>
 
-        <div className="flex gap-4 w-full md:w-auto">
+        <div className="nbt-catalog-controls flex gap-4 w-full md:w-auto">
           <select
-            className="border border-neutral-300 px-3 py-2 rounded-md focus:outline-none"
+            className="nbt-sort-select border border-neutral-300 px-3 py-2 focus:outline-none"
             value={filters.sort}
             onChange={handleSortDropdownChange} // <-- Use the new handler here
           >
@@ -125,7 +128,7 @@ export default function ProductsPage() {
         </div>
       ) : products.length > 0 ? (
         <>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="nbt-product-grid nbt-catalog-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {products.map((product) => (
               <ProductCard key={product._id} product={product} />
             ))}
@@ -139,7 +142,7 @@ export default function ProductsPage() {
                 type="button"
                 onClick={handleViewMore}
                 disabled={loadingMore}
-                className="px-6 py-3 border border-neutral-900 rounded-md font-medium hover:bg-neutral-900 hover:text-white transition disabled:opacity-50"
+                className="nbt-outline-cta px-6 py-3 border-nbt-ink font-medium disabled:opacity-50"
               >
                 {loadingMore ? "Loading..." : "View More"}
               </button>

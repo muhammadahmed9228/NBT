@@ -10,8 +10,8 @@ export default function ProductCard({ product }) {
   const variantCount = product.variants?.length || 0;
 
   return (
-    <Link to={`/products/${product._id}`} className="group block">
-      <div className="relative mb-4 aspect-[3/4] overflow-hidden bg-qala-champagne/30">
+    <Link to={`/products/${product._id}`} className="nbt-product-card group block">
+      <div className="nbt-product-media relative mb-4 aspect-[3/4] overflow-hidden bg-nbt-champagne/30">
         {/* Product Thumbnail */}
         {product.thumbnail?.url ? (
           <img
@@ -26,14 +26,14 @@ export default function ProductCard({ product }) {
         )}
 
         {product.discount > 0 && (
-          <div className="absolute left-3 top-3 bg-qala-espresso px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">
+            <div className="nbt-product-badge absolute left-3 top-3 bg-nbt-espresso px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">
             -{product.discount}%
           </div>
         )}
 
         {/* NEW: Color Count Badge (Bottom Left) */}
         {variantCount > 1 && (
-          <span className="absolute bottom-3 left-3 z-10 flex items-center gap-1.5 bg-qala-espresso/75 px-2 py-1.5 text-[10px] font-semibold text-white backdrop-blur-sm">
+          <span className="nbt-product-variants absolute bottom-3 left-3 z-10 flex items-center gap-1.5 bg-nbt-espresso/75 px-2 py-1.5 text-[10px] font-semibold text-white backdrop-blur-sm">
             {/* Tiny color wheel indicator */}
             <span
               className="w-2.5 h-2.5 rounded-full shadow-inner"
@@ -47,18 +47,20 @@ export default function ProductCard({ product }) {
         )}
       </div>
 
-      <h3 className="truncate text-sm font-medium text-qala-ink transition-colors group-hover:text-qala-bronze">
+      <div className="nbt-product-info">
+        <h3 className="truncate text-sm font-medium text-nbt-ink transition-colors group-hover:text-nbt-bronze">
         {product.name}
-      </h3>
-      <div className="mt-1 flex items-center space-x-2">
-        <span className="text-sm font-medium text-qala-bronze">
-          Rs. {finalPrice.toLocaleString()}
-        </span>
-        {product.discount > 0 && (
-          <span className="text-xs text-neutral-500 line-through">
-            Rs. {product.basePrice.toLocaleString()}
+        </h3>
+        <div className="nbt-product-price mt-1 flex items-center space-x-2">
+          <span className="text-sm font-medium text-nbt-bronze">
+            Rs. {finalPrice.toLocaleString()}
           </span>
-        )}
+          {product.discount > 0 && (
+            <span className="text-xs text-neutral-500 line-through">
+              Rs. {product.basePrice.toLocaleString()}
+            </span>
+          )}
+        </div>
       </div>
     </Link>
   );

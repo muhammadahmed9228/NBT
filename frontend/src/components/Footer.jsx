@@ -10,22 +10,22 @@ export default function Footer() {
   };
 
   return (
-    <footer className="border-t border-qala-espresso bg-qala-espresso text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+    <footer className="nbt-footer border-t border-nbt-espresso bg-nbt-espresso text-white">
+      <div className="nbt-footer-inner max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="nbt-footer-grid grid gap-8 md:grid-cols-2 xl:grid-cols-4">
           <div>
             <div className="flex items-center gap-3 mb-4">
               <img
                 src={logoImg}
-                alt="Qala Logo"
+                alt="NBT Logo"
                 className="h-10 w-auto object-contain"
               />
-              <span className="font-sans text-sm font-semibold uppercase tracking-[0.18em] text-qala-champagne">
-                Qala
+              <span className="font-sans text-sm font-semibold uppercase tracking-[0.18em] text-nbt-champagne">
+                NBT
               </span>
             </div>
             <p className="leading-relaxed text-neutral-400">
-              Qala was created with a simple belief: elegance does not need to be excessive.
+              NBT was created with a simple belief: elegance does not need to be excessive.
               Rooted in the beauty of Eastern dressing, we create and curate pieces where timeless silhouettes meet thoughtful, contemporary details.
               Our vision is to offer clothing that feels effortless yet distinctive—pieces you return to, dress in, and make your own.
             </p>
@@ -49,7 +49,7 @@ export default function Footer() {
                   Complains/ Need Help/ Contact
                 </h3>
                 <div className="flex flex-col gap-1">
-                  <span>qala.official1@gmail.com</span>
+                  <span>nbt.official1@gmail.com</span>
                   <span>0332-2363113</span>
                 </div>
               </li>
@@ -96,7 +96,7 @@ export default function Footer() {
               </h4>
               <div className="mt-3 flex flex-wrap gap-3 text-sm text-neutral-300">
                 <a
-                  href="https://www.instagram.com/qala.official__?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="
+                  href="https://www.instagram.com/nbt.official__?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="
                   target="_blank"
                   rel="noreferrer"
                   className="hover:text-white transition-colors"
@@ -155,9 +155,9 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* <div className="mt-10 border-t border-qala-bronze/40 pt-8">
+        {/* <div className="mt-10 border-t border-nbt-bronze/40 pt-8">
           <div className="mb-5">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-qala-champagne">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-nbt-champagne">
               Crafted by
             </p>
             <h3 className="mt-2 text-2xl font-medium text-white">
@@ -170,7 +170,7 @@ export default function Footer() {
               <div className="mt-2 flex flex-col gap-1 text-sm text-neutral-400 sm:flex-row sm:flex-wrap sm:gap-x-4">
                 <a
                   href="tel:+923001234567"
-                  className="transition hover:text-qala-champagne"
+                  className="transition hover:text-nbt-champagne"
                 >
                   +92 327 0774028
                 </a>
@@ -179,14 +179,14 @@ export default function Footer() {
                   href="https://www.instagram.com/wamiq_siraj"
                   target="_blank"
                   rel="noreferrer"
-                  className="transition hover:text-qala-champagne"
+                  className="transition hover:text-nbt-champagne"
                 >
                   @wamiq_siraj
                 </a>
                 <p className="font-medium text-white">Email:</p>
                 <a
                   href="mailto:wamiqsiraj2@gmail.com"
-                  className="transition hover:text-qala-champagne"
+                  className="transition hover:text-nbt-champagne"
                 >
                   wamiqsiraj2@gmail.com
                 </a>
@@ -197,7 +197,7 @@ export default function Footer() {
               <div className="mt-2 flex flex-col gap-1 text-sm text-neutral-400 sm:flex-row sm:flex-wrap sm:gap-x-4">
                 <a
                   href="tel:+923111234567"
-                  className="transition hover:text-qala-champagne"
+                  className="transition hover:text-nbt-champagne"
                 >
                   +92 322 5304113
                 </a>
@@ -206,14 +206,14 @@ export default function Footer() {
                   href="https://www.instagram.com/m_ahmed9228"
                   target="_blank"
                   rel="noreferrer"
-                  className="transition hover:text-qala-champagne"
+                  className="transition hover:text-nbt-champagne"
                 >
                   @m_ahmed9228
                 </a>
                 <p className="font-medium text-white">Email:</p>
                 <a
                   href="mailto:muhammadahmed9228@gmail.com"
-                  className="transition hover:text-qala-champagne"
+                  className="transition hover:text-nbt-champagne"
                 >
                   muhammadahmed9228@gmail.com
                 </a>
@@ -223,7 +223,7 @@ export default function Footer() {
         </div> */}
 
         <div className="mt-10 border-t border-neutral-700 pt-6 text-center text-sm text-neutral-400">
-          <p>© {new Date().getFullYear()} Qala. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} NBT. All rights reserved.</p>
         </div>
       </div>
     </footer>

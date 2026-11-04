@@ -153,10 +153,10 @@ export default function AdminCouponsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-qala-bronze">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-nbt-bronze">
           Promotions & Discounts
         </p>
-        <h1 className="mt-2 text-3xl font-serif font-bold text-qala-espresso">Coupons</h1>
+        <h1 className="mt-2 text-3xl font-serif font-bold text-nbt-espresso">Coupons</h1>
         <p className="mt-2 text-sm text-neutral-600">
           Create and manage discount codes. Discounts are securely validated and recalculated on the server during checkout.
         </p>
@@ -165,9 +165,9 @@ export default function AdminCouponsPage() {
       {/* Form Card */}
       <form
         onSubmit={handleSubmit}
-        className="space-y-4 rounded border border-qala-champagne bg-white p-5 shadow-sm"
+        className="space-y-4 rounded border border-nbt-champagne bg-white p-5 shadow-sm"
       >
-        <h2 className="text-base font-serif font-bold text-qala-espresso">
+        <h2 className="text-base font-serif font-bold text-nbt-espresso">
           {editingId ? "Edit Coupon" : "Create New Coupon"}
         </h2>
 
@@ -178,11 +178,11 @@ export default function AdminCouponsPage() {
             </label>
             <input
               required
-              placeholder="e.g. QALA10"
+              placeholder="e.g. NBT10"
               value={form.code}
               onChange={(e) => setForm({ ...form, code: e.target.value.toUpperCase() })}
               maxLength={32}
-              className="w-full rounded border border-neutral-300 px-3 py-2 text-sm uppercase focus:border-qala-bronze focus:outline-none"
+              className="w-full rounded border border-neutral-300 px-3 py-2 text-sm uppercase focus:border-nbt-bronze focus:outline-none"
             />
           </div>
 
@@ -193,7 +193,7 @@ export default function AdminCouponsPage() {
             <select
               value={form.discountType}
               onChange={(e) => setForm({ ...form, discountType: e.target.value })}
-              className="w-full rounded border border-neutral-300 px-3 py-2 text-sm focus:border-qala-bronze focus:outline-none"
+              className="w-full rounded border border-neutral-300 px-3 py-2 text-sm focus:border-nbt-bronze focus:outline-none"
             >
               <option value="percentage">Percentage (%)</option>
               <option value="fixed">Fixed Amount (Rs.)</option>
@@ -214,7 +214,7 @@ export default function AdminCouponsPage() {
               placeholder={form.discountType === "percentage" ? "10" : "500"}
               value={form.discountValue}
               onChange={(e) => setForm({ ...form, discountValue: e.target.value })}
-              className="w-full rounded border border-neutral-300 px-3 py-2 text-sm focus:border-qala-bronze focus:outline-none"
+              className="w-full rounded border border-neutral-300 px-3 py-2 text-sm focus:border-nbt-bronze focus:outline-none"
             />
           </div>
 
@@ -227,7 +227,7 @@ export default function AdminCouponsPage() {
               type="date"
               value={form.expiryDate}
               onChange={(e) => setForm({ ...form, expiryDate: e.target.value })}
-              className="w-full rounded border border-neutral-300 px-3 py-2 text-sm focus:border-qala-bronze focus:outline-none"
+              className="w-full rounded border border-neutral-300 px-3 py-2 text-sm focus:border-nbt-bronze focus:outline-none"
             />
           </div>
 
@@ -242,7 +242,7 @@ export default function AdminCouponsPage() {
               placeholder="0 (No minimum)"
               value={form.minimumOrderAmount}
               onChange={(e) => setForm({ ...form, minimumOrderAmount: e.target.value })}
-              className="w-full rounded border border-neutral-300 px-3 py-2 text-sm focus:border-qala-bronze focus:outline-none"
+              className="w-full rounded border border-neutral-300 px-3 py-2 text-sm focus:border-nbt-bronze focus:outline-none"
             />
           </div>
 
@@ -252,7 +252,7 @@ export default function AdminCouponsPage() {
                 type="checkbox"
                 checked={form.isActive}
                 onChange={(e) => setForm({ ...form, isActive: e.target.checked })}
-                className="h-4 w-4 rounded border-neutral-300 accent-qala-espresso"
+                className="h-4 w-4 rounded border-neutral-300 accent-nbt-espresso"
               />
               Active status
             </label>
@@ -263,7 +263,7 @@ export default function AdminCouponsPage() {
           <button
             type="submit"
             disabled={saving}
-            className="bg-qala-espresso px-5 py-2 text-sm font-semibold text-white transition hover:bg-qala-bronze disabled:opacity-50"
+            className="bg-nbt-espresso px-5 py-2 text-sm font-semibold text-white transition hover:bg-nbt-bronze disabled:opacity-50"
           >
             {saving ? "Saving..." : editingId ? "Update Coupon" : "Create Coupon"}
           </button>
@@ -284,20 +284,20 @@ export default function AdminCouponsPage() {
 
       {/* Coupons Table */}
       <div className="space-y-3">
-        <h2 className="text-lg font-serif font-bold text-qala-espresso">
+        <h2 className="text-lg font-serif font-bold text-nbt-espresso">
           Existing Coupons ({coupons.length})
         </h2>
 
         {loading ? (
           <p className="py-6 text-center text-sm text-neutral-500">Loading coupons...</p>
         ) : coupons.length === 0 ? (
-          <p className="border border-dashed border-qala-champagne bg-white p-8 text-center text-sm text-neutral-500">
+          <p className="border border-dashed border-nbt-champagne bg-white p-8 text-center text-sm text-neutral-500">
             No coupons created yet. Use the form above to add your first promotion code.
           </p>
         ) : (
-          <div className="overflow-x-auto rounded border border-qala-champagne bg-white shadow-sm">
+          <div className="overflow-x-auto rounded border border-nbt-champagne bg-white shadow-sm">
             <table className="w-full min-w-[720px] text-left text-sm">
-              <thead className="border-b border-qala-champagne bg-qala-champagne/20 text-xs font-semibold uppercase tracking-wider text-neutral-700">
+              <thead className="border-b border-nbt-champagne bg-nbt-champagne/20 text-xs font-semibold uppercase tracking-wider text-neutral-700">
                 <tr>
                   <th className="p-3">Code</th>
                   <th className="p-3">Discount</th>
@@ -307,13 +307,13 @@ export default function AdminCouponsPage() {
                   <th className="p-3 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-qala-champagne">
+              <tbody className="divide-y divide-nbt-champagne">
                 {coupons.map((coupon) => {
                   const expired = isExpired(coupon.expiryDate);
                   return (
-                    <tr key={coupon._id} className="transition hover:bg-qala-cream/30">
+                    <tr key={coupon._id} className="transition hover:bg-nbt-cream/30">
                       <td className="p-3">
-                        <span className="font-mono font-bold tracking-wider text-qala-espresso">
+                        <span className="font-mono font-bold tracking-wider text-nbt-espresso">
                           {coupon.code}
                         </span>
                       </td>
@@ -357,7 +357,7 @@ export default function AdminCouponsPage() {
                           <button
                             type="button"
                             onClick={() => editCoupon(coupon)}
-                            className="text-xs font-semibold uppercase tracking-wider text-qala-bronze underline-offset-4 hover:underline"
+                            className="text-xs font-semibold uppercase tracking-wider text-nbt-bronze underline-offset-4 hover:underline"
                           >
                             Edit
                           </button>

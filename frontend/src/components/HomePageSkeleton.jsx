@@ -4,7 +4,7 @@ function SkeletonBlock({ className = "" }) {
 
 export default function HomePageSkeleton() {
   return (
-    <div className="space-y-8 pb-16 md:space-y-10" aria-label="Loading homepage" role="status">
+    <div className="nbt-home-skeleton space-y-8 pb-16 md:space-y-10" aria-label="Loading homepage" role="status">
       <SkeletonBlock className="-mx-6 h-[52vh] w-[calc(100%+3rem)] md:mx-0 md:h-[60vh] md:w-full md:rounded-lg" />
 
       {["first", "second"].map((section) => (

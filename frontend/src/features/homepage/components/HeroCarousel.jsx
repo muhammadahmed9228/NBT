@@ -41,22 +41,22 @@ export default function HeroCarousel({ slides }) {
 
   return (
     <section
-      className="relative h-[68vh] min-h-[30rem] w-full overflow-hidden bg-qala-espresso touch-pan-y md:h-[78vh]"
+      className="nbt-hero relative h-[68vh] min-h-[30rem] w-full overflow-hidden bg-nbt-espresso touch-pan-y md:h-[78vh]"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
       {slides.map((slide, index) => (
         <div 
           key={slide._id}
-          className={`absolute inset-0 transition-opacity duration-1000 ${index === currentIndex ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+          className={`nbt-hero-slide absolute inset-0 transition-opacity duration-1000 ${index === currentIndex ? "opacity-100" : "opacity-0 pointer-events-none"}`}
         >
           {/* Background Image with Dark Overlay */}
-          <div className="absolute inset-0 z-10 bg-qala-espresso/35"></div>
+          <div className="absolute inset-0 z-10 bg-nbt-espresso/35"></div>
           <img src={slide.image.url} alt={slide.heading} className="h-full w-full object-cover transition-transform duration-[7000ms] ease-out" />
           
           {/* Text Content */}
-          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-6 text-center text-white">
-            <p className="mb-5 text-[10px] font-semibold uppercase tracking-[0.38em] text-qala-champagne">Qala / New season</p>
+          <div className="nbt-hero-content absolute inset-0 z-20 flex flex-col items-center justify-center px-6 text-center text-white">
+            <p className="nbt-eyebrow mb-5 text-[10px] text-nbt-champagne">NBT / New season</p>
             <h2 className="max-w-4xl text-4xl font-medium leading-[0.95] tracking-wide md:text-7xl">{slide.heading}</h2>
             {slide.subtitle && (
               <p className="mb-8 mt-5 max-w-xl text-sm leading-relaxed text-white/90 md:text-lg">{slide.subtitle}</p>
@@ -64,7 +64,7 @@ export default function HeroCarousel({ slides }) {
             {slide.buttonText && (
               <Link 
                 to={slide.buttonUrl} 
-                className="border border-white/70 px-8 py-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-qala-espresso"
+                className="nbt-hero-cta border border-white/70 px-8 py-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white hover:text-nbt-espresso"
               >
                 {slide.buttonText}
               </Link>
@@ -75,7 +75,7 @@ export default function HeroCarousel({ slides }) {
 
       {/* Manual Navigation Dots */}
       {slides.length > 1 && (
-        <div className="absolute bottom-7 left-1/2 z-30 flex -translate-x-1/2 space-x-2">
+        <div className="nbt-hero-dots absolute bottom-7 left-1/2 z-30 flex -translate-x-1/2 space-x-2">
           {slides.map((_, index) => (
             <button 
               key={index} 

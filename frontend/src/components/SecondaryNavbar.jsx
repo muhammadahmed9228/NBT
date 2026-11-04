@@ -58,12 +58,12 @@ export default function SecondaryNavbar({ isMobileSearchOpen = false, onCloseSea
   };
 
   return (
-    <div className="relative z-[70] overflow-visible border-b border-qala-champagne/60 bg-qala-cream">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center justify-between overflow-visible no-scrollbar">
+    <div className="nbt-secondary-nav relative z-[70] overflow-visible border-b border-nbt-champagne/60 bg-nbt-cream">
+      <div className="nbt-secondary-nav-inner max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center justify-between overflow-visible no-scrollbar">
         <div className="relative flex-shrink-0 z-[80]" ref={dropdownRef}>
           <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="flex cursor-pointer items-center gap-2 py-2 text-xs font-semibold tracking-[0.16em] text-qala-espresso hover:text-qala-bronze"
+            className="flex cursor-pointer items-center gap-2 py-2 text-xs font-semibold tracking-[0.16em] text-nbt-espresso hover:text-nbt-bronze"
           >
             SHOP BY COLLECTION
             <svg
@@ -82,7 +82,7 @@ export default function SecondaryNavbar({ isMobileSearchOpen = false, onCloseSea
           </button>
 
           {isDropdownOpen && (
-            <div className="absolute top-full left-0 mt-1 w-56 bg-white border border-neutral-200 shadow-xl rounded-md overflow-visible z-[999] animate-fade-in-up">
+            <div className="nbt-collection-menu absolute top-full left-0 mt-1 w-56 bg-white border border-neutral-200 shadow-xl rounded-md overflow-visible z-[999] animate-fade-in-up">
               {collections.length > 0 ? (
                 collections.map((col) => (
                   <Link
@@ -114,7 +114,7 @@ export default function SecondaryNavbar({ isMobileSearchOpen = false, onCloseSea
         <div className="flex items-center space-x-6 ml-6 flex-shrink-0">
           <button
             onClick={() => handleSortClick("createdAt")}
-            className="cursor-pointer text-[10px] font-semibold uppercase tracking-[0.2em] text-neutral-500 transition hover:text-qala-bronze"
+            className="cursor-pointer text-[10px] font-semibold uppercase tracking-[0.2em] text-neutral-500 transition hover:text-nbt-bronze"
           >
             New Arrivals
           </button>
@@ -137,7 +137,7 @@ export default function SecondaryNavbar({ isMobileSearchOpen = false, onCloseSea
               type="button"
               onClick={onCloseSearch}
               aria-label="Close search navbar"
-              className="flex h-8 w-8 items-center justify-center rounded-full text-qala-espresso hover:bg-qala-champagne/40 transition cursor-pointer md:hidden"
+              className="flex h-8 w-8 items-center justify-center rounded-full text-nbt-espresso hover:bg-nbt-champagne/40 transition cursor-pointer md:hidden"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

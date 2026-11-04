@@ -112,27 +112,27 @@ export default function HomePage() {
   );
 
   const collectionSection = collections.length > 0 && (
-    <section className="mx-auto max-w-7xl px-1 pt-1 md:px-4 md:pt-6">
+    <section className="nbt-collection-feature mx-auto max-w-7xl px-1 pt-1 md:px-4 md:pt-6">
       <div className="mb-4 flex items-end justify-between gap-3 md:mb-6">
         <div>
-          <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-qala-bronze">
+          <p className="nbt-eyebrow mb-2">
             Explore the edit
           </p>
-          <h2 className="text-3xl font-medium text-qala-espresso md:text-4xl">
+          <h2 className="text-3xl font-medium text-nbt-espresso md:text-4xl">
             Shop by Collection
           </h2>
         </div>
       </div>
       <div className="relative">
         <div
-          className="flex gap-4 overflow-hidden touch-pan-y md:gap-6"
+          className="nbt-collection-track flex gap-4 overflow-hidden touch-pan-y md:gap-6"
           onTouchStart={handleCollectionTouchStart}
           onTouchEnd={handleCollectionTouchEnd}
         >
           {visibleCollections.map((col) => (
             <div
               key={col._id}
-              className="group relative h-72 min-w-[calc(50%-0.5rem)] overflow-hidden bg-qala-espresso md:h-[26rem] md:min-w-[calc(33.333%-1rem)] md:flex-1"
+              className="nbt-collection-card group relative h-72 min-w-[calc(50%-0.5rem)] overflow-hidden bg-nbt-espresso md:h-[26rem] md:min-w-[calc(33.333%-1rem)] md:flex-1"
             >
               {col.image?.url && (
                 <img
@@ -142,13 +142,13 @@ export default function HomePage() {
                 />
               )}
               <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent" />
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-10">
+              <div className="nbt-collection-card-content absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-10">
                 <h3 className="mb-4 text-3xl font-medium text-white md:text-4xl">
                   {col.name}
                 </h3>
                 <Link
                   to={`/collections/${col.slug}`}
-                  className="border border-white/70 px-5 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-white hover:text-qala-espresso md:px-6"
+                  className="nbt-outline-cta border-white/70 px-5 py-2 text-[10px] text-white hover:bg-white hover:text-nbt-espresso md:px-6"
                 >
                   See More
                 </Link>
@@ -163,7 +163,7 @@ export default function HomePage() {
           }
           disabled={collectionPosition === 0}
           aria-label="Previous collection"
-          className="absolute left-0 top-1/2 z-10 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center border border-qala-bronze bg-qala-cream text-qala-bronze transition hover:bg-qala-bronze hover:text-white disabled:cursor-not-allowed disabled:opacity-30"
+          className="absolute left-0 top-1/2 z-10 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center border border-nbt-bronze bg-nbt-cream text-nbt-bronze transition hover:bg-nbt-bronze hover:text-white disabled:cursor-not-allowed disabled:opacity-30"
         >
           <svg
             aria-hidden="true"
@@ -189,7 +189,7 @@ export default function HomePage() {
           }
           disabled={collectionPosition >= collectionMaxPosition}
           aria-label="Next collection"
-          className="absolute right-0 top-1/2 z-10 flex h-10 w-10 translate-x-1/2 -translate-y-1/2 items-center justify-center border border-qala-bronze bg-qala-cream text-qala-bronze transition hover:bg-qala-bronze hover:text-white disabled:cursor-not-allowed disabled:opacity-30"
+          className="absolute right-0 top-1/2 z-10 flex h-10 w-10 translate-x-1/2 -translate-y-1/2 items-center justify-center border border-nbt-bronze bg-nbt-cream text-nbt-bronze transition hover:bg-nbt-bronze hover:text-white disabled:cursor-not-allowed disabled:opacity-30"
         >
           <svg
             aria-hidden="true"
@@ -214,7 +214,7 @@ export default function HomePage() {
   if (loading) return <HomePageSkeleton />;
 
   return (
-    <div className="space-y-6 pb-12 md:space-y-10 md:pb-16">
+    <div className="nbt-home-page space-y-6 pb-12 md:space-y-10 md:pb-16">
       <div>
         <HeroCarousel slides={slides} />
       </div>
@@ -234,13 +234,13 @@ export default function HomePage() {
 
         return (
           <Fragment key={section._id}>
-            <section className="mx-auto max-w-7xl border-t border-qala-champagne/70 px-2 py-5 md:px-4 md:py-8">
-              <div className="mb-4 flex flex-col items-start gap-3 md:mb-6 md:flex-row md:items-end md:justify-between">
+            <section className="nbt-home-section mx-auto max-w-7xl border-t border-nbt-champagne/70 px-2 py-5 md:px-4 md:py-8">
+              <div className="nbt-section-heading mb-4 flex flex-col items-start gap-3 md:mb-6 md:flex-row md:items-end md:justify-between">
                 <div className="w-full text-left">
-                  <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-qala-bronze">
-                    The Qala edit
+                  <p className="nbt-eyebrow mb-2">
+                    The NBT edit
                   </p>
-                  <h2 className="mb-1 text-3xl font-medium text-qala-espresso md:text-4xl">
+                  <h2 className="mb-1 text-3xl font-medium text-nbt-espresso md:text-4xl">
                     {section.title}
                   </h2>
                   {section.subtitle && (
@@ -251,7 +251,7 @@ export default function HomePage() {
                 </div>
                 <Link
                   to={viewMorePath}
-                  className="inline-flex h-fit shrink-0 items-center justify-center self-end border border-qala-espresso px-5 py-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-qala-espresso transition duration-200 hover:bg-qala-espresso hover:text-white md:self-auto md:px-7"
+                  className="nbt-outline-cta inline-flex h-fit shrink-0 items-center justify-center self-end border-nbt-espresso px-5 py-2 text-[10px] text-nbt-espresso md:self-auto md:px-7"
                 >
                   View More
                 </Link>
@@ -270,7 +270,7 @@ export default function HomePage() {
       <button
         type="button"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className={`fixed bottom-24 right-7 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-qala-espresso text-white shadow-lg transition-all duration-300 hover:scale-110 hover:bg-qala-bronze ${
+        className={`fixed bottom-24 right-7 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-nbt-espresso text-white shadow-lg transition-all duration-300 hover:scale-110 hover:bg-nbt-bronze ${
           showScrollTop
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 translate-y-4 pointer-events-none"

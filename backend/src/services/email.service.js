@@ -6,7 +6,7 @@ import {
 } from "../utils/emailTemplates.js";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const SENDER_EMAIL = "Qala <onboarding@qalaofficial.com>";
+const SENDER_EMAIL = "NBT <onboarding@nbtofficial.com>";
 
 const sendEmail = async ({ to, subject, html }) => {
     try {

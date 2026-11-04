@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import apiClient from "../services/apiClient";
 
 const dismissKey = (announcement) =>
-  `qala-announcement-dismissed:${announcement._id}:${announcement.updatedAt}`;
+  `nbt-announcement-dismissed:${announcement._id}:${announcement.updatedAt}`;
 
 const isExternalLink = (link) => /^https?:\/\//i.test(link || "");
 
@@ -41,7 +41,7 @@ export default function AnnouncementBar() {
 
   return (
     <div
-      className="relative z-[61] flex min-h-9 items-center justify-center px-8 py-2 text-center text-[10px] font-semibold uppercase tracking-[0.16em] sm:px-12 sm:text-[11px]"
+      className="nbt-announcement relative z-[61] flex min-h-9 items-center justify-center px-8 py-2 text-center text-[10px] font-semibold uppercase tracking-[0.16em] sm:px-12 sm:text-[11px]"
       style={{ backgroundColor: announcement.backgroundColor || "#30251E", color: announcement.textColor || "#D8C8B6" }}
     >
       <div className="mx-auto flex max-w-4xl items-center justify-center">

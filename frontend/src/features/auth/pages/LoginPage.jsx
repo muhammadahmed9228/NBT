@@ -8,6 +8,8 @@ import { setCredentials } from "../authSlice";
 import { Turnstile } from '@marsidev/react-turnstile';
 import PasswordInput from "../../../components/PasswordInput";
 
+const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY;
+
 export default function LoginPage() {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [submitting, setSubmitting] = useState(false);
@@ -66,7 +68,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="max-w-md mx-auto my-12 bg-white p-8 rounded-lg shadow-sm border border-neutral-200">
+    <div className="nbt-auth-card max-w-md mx-auto my-12 bg-white p-8 rounded-lg shadow-sm border border-neutral-200">
       <h2 className="text-2xl font-serif font-bold text-center mb-6">
 
         Customer Login
@@ -100,7 +102,7 @@ export default function LoginPage() {
         
         <div className="py-2 flex justify-center">
           <Turnstile 
-            siteKey="0x4AAAAAAEyCT9dIF1IcOxCK" 
+            siteKey={turnstileSiteKey}
             onSuccess={(token) => setTurnstileToken(token)}
             onExpire={() => setTurnstileToken(null)}
           />

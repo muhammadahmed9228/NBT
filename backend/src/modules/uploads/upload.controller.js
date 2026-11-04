@@ -14,7 +14,7 @@ export const uploadImage = asyncHandler(async (req, res) => {
         const response = await imagekit.upload({
             file: req.file.buffer, // Provided by multer.memoryStorage
             fileName: req.file.originalname,
-            folder: "/qala/products", // Optional: organizes new uploads in ImageKit dashboard
+            folder: "/NBT/products", // Optional: organizes new uploads in ImageKit dashboard
         });
 
         return res.status(200).json(new ApiResponse(200, {

@@ -94,42 +94,42 @@ export default function RootLayout() {
   };
 
   return (
-    <div className="flex min-h-screen min-w-0 flex-col overflow-x-hidden">
+    <div className="storefront-shell flex min-h-screen min-w-0 flex-col overflow-x-hidden">
       {!isCheckoutPage && <AnnouncementBar />}
-      <header className={`${isCheckoutPage ? "hidden" : "hidden md:block"} sticky top-0 z-60 overflow-visible border-b border-qala-bronze/30 bg-qala-cream/95 backdrop-blur-md transition-transform duration-300 ${isHeaderVisible ? "translate-y-0" : "-translate-y-full"}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <header className={`storefront-header ${isCheckoutPage ? "hidden" : "hidden md:block"} sticky top-0 z-60 overflow-visible border-b border-nbt-bronze/30 bg-nbt-cream/95 backdrop-blur-md transition-transform duration-300 ${isHeaderVisible ? "translate-y-0" : "-translate-y-full"}`}>
+        <div className="nbt-header-inner max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <Link
             to="/"
             className="flex items-center gap-3 text-xl font-bold uppercase tracking-wider"
           >
             <img
               src={logoImg}
-              alt="Qala Logo"
+              alt="NBT Logo"
               className="h-12 w-auto object-contain"
             />
-            <span className="text-lg font-semibold uppercase tracking-widest text-qala-espresso selection:bg-qala-bronze selection:text-white">
-              Qala
+            <span className="text-lg font-semibold uppercase tracking-widest text-nbt-espresso selection:bg-nbt-bronze selection:text-white">
+              NBT
             </span>
           </Link>
           {/* Storefront search is hidden on checkout and authentication pages. */}
           {!isCheckoutPage && !isAuthPage && (
-            <div className="hidden md:flex flex-1 justify-center px-8">
+            <div className="nbt-header-search hidden md:flex flex-1 justify-center px-8">
               <SearchBar isAdmin={false} />
             </div>
           )}
 
-          {!isCheckoutPage && !isAuthPage && <nav className="flex items-center space-x-6 text-sm font-medium">
+          {!isCheckoutPage && !isAuthPage && <nav className="nbt-header-actions flex items-center space-x-6 text-sm font-medium">
             <button
               onClick={() => dispatch(toggleCart())}
               aria-label="Open cart"
-              className="relative flex h-10 w-10 cursor-pointer items-center justify-center text-qala-espresso transition hover:text-qala-bronze"
+              className="relative flex h-10 w-10 cursor-pointer items-center justify-center text-nbt-espresso transition hover:text-nbt-bronze"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-6 w-6" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 4h2l1.4 11.2a2 2 0 0 0 2 1.8h7.8a2 2 0 0 0 2-1.6L20.5 8H5.4" />
                 <path strokeLinecap="round" d="M9 20h.01M17 20h.01" />
               </svg>
               {totalCartItems > 0 && (
-                <span className="absolute right-0 top-0 min-w-4 rounded-full bg-qala-bronze px-1 text-center text-[10px] font-bold text-white">
+                <span className="absolute right-0 top-0 min-w-4 rounded-full bg-nbt-bronze px-1 text-center text-[10px] font-bold text-white">
                   {totalCartItems}
                 </span>
               )}
@@ -137,24 +137,24 @@ export default function RootLayout() {
 
             {isAuthenticated ? (
               <>
-                <Link to="/profile" className="hover:text-qala-bronze">
+                <Link to="/profile" className="hover:text-nbt-bronze">
                   Hi, {user?.name.split(" ")[0]}
                 </Link>
                 {user?.role === "admin" && (
-                  <span className="rounded bg-qala-champagne px-2 py-0.5 text-xs font-semibold text-qala-espresso">
+                  <span className="rounded bg-nbt-champagne px-2 py-0.5 text-xs font-semibold text-nbt-espresso">
                     Admin
                   </span>
                 )}
                 <button
                   onClick={handleLogout}
-                  className="cursor-pointer text-neutral-500 hover:text-qala-bronze"
+                  className="cursor-pointer text-neutral-500 hover:text-nbt-bronze"
                 >
                   Logout
                 </button>
               </>
             ) : (
               <>
-                <Link to="/login" className="hover:text-qala-bronze">
+                <Link to="/login" className="hover:text-nbt-bronze">
                   Sign In
                 </Link>
               </>
@@ -166,7 +166,7 @@ export default function RootLayout() {
 
       {!isCheckoutPage && !isAuthPage && (
         <header
-          className={`md:hidden sticky top-0 z-60 border-b border-qala-bronze/30 bg-qala-cream/95 backdrop-blur-md transition-transform duration-300 ${
+          className={`storefront-mobile-header md:hidden sticky top-0 z-60 border-b border-nbt-bronze/30 bg-nbt-cream/95 backdrop-blur-md transition-transform duration-300 ${
             isHeaderVisible ? "translate-y-0" : "-translate-y-full"
           }`}
         >
@@ -178,15 +178,15 @@ export default function RootLayout() {
                 setIsMobileSearchOpen(false);
               }}
               aria-label="Open menu"
-              className="flex h-10 w-10 items-center justify-center text-qala-espresso"
+              className="flex h-10 w-10 items-center justify-center text-nbt-espresso"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-6 w-6" aria-hidden="true">
                 <path strokeLinecap="round" d="M4 7h16M4 12h16M4 17h16" />
               </svg>
             </button>
 
-            <Link to="/" aria-label="Qala home" className="absolute left-1/2 -translate-x-1/2">
-              <img src={logoImg} alt="Qala Logo" className="h-11 w-auto object-contain" />
+            <Link to="/" aria-label="NBT home" className="absolute left-1/2 -translate-x-1/2">
+              <img src={logoImg} alt="NBT Logo" className="h-11 w-auto object-contain" />
             </Link>
 
             <div className="flex items-center gap-1">
@@ -197,7 +197,7 @@ export default function RootLayout() {
                   setIsMobileMenuOpen(false);
                 }}
                 aria-label={isMobileSearchOpen ? "Close search" : "Open search"}
-                className="flex h-10 w-10 items-center justify-center text-qala-espresso cursor-pointer"
+                className="flex h-10 w-10 items-center justify-center text-nbt-espresso cursor-pointer"
               >
                 {isMobileSearchOpen ? (
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-6 w-6" aria-hidden="true">
@@ -214,18 +214,18 @@ export default function RootLayout() {
                 type="button"
                 onClick={() => dispatch(toggleCart())}
                 aria-label="Open cart"
-                className="relative flex h-10 w-10 items-center justify-center text-qala-espresso"
+                className="relative flex h-10 w-10 items-center justify-center text-nbt-espresso"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-6 w-6" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 4h2l1.4 11.2a2 2 0 0 0 2 1.8h7.8a2 2 0 0 0 2-1.6L20.5 8H5.4" />
                   <path strokeLinecap="round" d="M9 20h.01M17 20h.01" />
                 </svg>
-                {totalCartItems > 0 && <span className="absolute right-0 top-0 min-w-4 rounded-full bg-qala-bronze px-1 text-center text-[10px] font-bold text-white">{totalCartItems}</span>}
+                {totalCartItems > 0 && <span className="absolute right-0 top-0 min-w-4 rounded-full bg-nbt-bronze px-1 text-center text-[10px] font-bold text-white">{totalCartItems}</span>}
               </button>
 
               {isAuthenticated ? (
-                <Link to="/profile" aria-label="Open profile" className="flex h-10 w-10 items-center justify-center text-qala-espresso">
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full border border-qala-espresso text-sm" aria-hidden="true">
+                <Link to="/profile" aria-label="Open profile" className="flex h-10 w-10 items-center justify-center text-nbt-espresso">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full border border-nbt-espresso text-sm" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-4 w-4">
                       <circle cx="12" cy="8" r="3.5" />
                       <path strokeLinecap="round" d="M5 20c.8-3.2 3.2-5 7-5s6.2 1.8 7 5" />
@@ -233,7 +233,7 @@ export default function RootLayout() {
                   </span>
                 </Link>
               ) : (
-                <Link to="/login" aria-label="Sign In" className="flex h-10 w-10 items-center justify-center text-qala-espresso">
+                <Link to="/login" aria-label="Sign In" className="flex h-10 w-10 items-center justify-center text-nbt-espresso">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-6 w-6" aria-hidden="true">
                     <circle cx="12" cy="8" r="3.5" />
                     <path strokeLinecap="round" d="M5 20c.8-3.2 3.2-5 7-5s6.2 1.8 7 5" />
@@ -244,13 +244,13 @@ export default function RootLayout() {
           </div>
 
           {isMobileSearchOpen && (
-            <div className="border-t border-qala-champagne bg-qala-cream px-4 py-3">
+            <div className="border-t border-nbt-champagne bg-nbt-cream px-4 py-3">
               <SearchBar isAdmin={false} onClose={() => setIsMobileSearchOpen(false)} />
             </div>
           )}
 
           {isMobileMenuOpen && (
-            <div className="border-t border-qala-champagne bg-qala-cream px-5 py-4 shadow-lg">
+            <div className="nbt-mobile-drawer border-t border-nbt-champagne bg-nbt-cream px-5 py-4 shadow-lg">
               <nav className="space-y-1 text-sm font-medium">
                 <p className="px-2 pb-2 text-xs font-bold uppercase tracking-wider text-neutral-400">Shop</p>
                 <Link to="/products" onClick={() => setIsMobileMenuOpen(false)} className="block border-b border-neutral-100 px-2 py-3">All Products</Link>
@@ -286,10 +286,10 @@ export default function RootLayout() {
       {isAuthPage && (
         <header className="md:hidden border-b border-neutral-200 bg-white">
           <div className="flex h-16 items-center justify-center px-4">
-            <Link to="/" aria-label="Qala home" className="flex items-center gap-2">
-              <img src={logoImg} alt="Qala Logo" className="h-11 w-auto object-contain" />
+            <Link to="/" aria-label="NBT home" className="flex items-center gap-2">
+              <img src={logoImg} alt="NBT Logo" className="h-11 w-auto object-contain" />
               <span className="text-base font-semibold tracking-widest text-gray-900 uppercase">
-                Qala
+                NBT
               </span>
             </Link>
           </div>

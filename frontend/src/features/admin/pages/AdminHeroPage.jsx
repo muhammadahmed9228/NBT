@@ -94,11 +94,11 @@ export default function AdminHeroPage() {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-serif font-bold text-qala-espresso">Homepage Carousel</h1>
+        <h1 className="text-2xl font-serif font-bold text-nbt-espresso">Homepage Carousel</h1>
         {!showForm && (
           <button
             onClick={() => setShowForm(true)}
-            className="bg-qala-espresso px-4 py-2 text-sm text-white transition hover:bg-qala-bronze"
+            className="bg-nbt-espresso px-4 py-2 text-sm text-white transition hover:bg-nbt-bronze"
           >
             + Add Slide
           </button>
@@ -118,7 +118,7 @@ export default function AdminHeroPage() {
       )}
 
       {/* NEW: Sorting & Limit Controls */}
-      <div className="flex items-center justify-between rounded-lg border border-qala-champagne bg-white p-4 shadow-sm">
+      <div className="flex items-center justify-between rounded-lg border border-nbt-champagne bg-white p-4 shadow-sm">
         <div className="flex items-center gap-2">
           <label className="text-sm font-medium text-neutral-600">Show:</label>
           <select
@@ -169,7 +169,7 @@ export default function AdminHeroPage() {
             {slides.map((slide) => (
               <div
                 key={slide._id}
-                className="group relative overflow-hidden rounded-lg border border-qala-champagne bg-white shadow-sm"
+                className="group relative overflow-hidden rounded-lg border border-nbt-champagne bg-white shadow-sm"
               >
                 <img
                   src={slide.image.url}
@@ -195,13 +195,13 @@ export default function AdminHeroPage() {
                 <div className="absolute right-2 top-2 flex gap-2 opacity-100 transition-opacity md:opacity-0 md:group-hover:opacity-100">
                   <button
                     onClick={() => setSelectedSlide(slide)}
-                    className="rounded-md bg-qala-bronze p-2 text-white shadow transition hover:bg-qala-espresso"
+                    className="rounded-md bg-nbt-bronze p-2 text-white shadow transition hover:bg-nbt-espresso"
                   >
                     👁️
                   </button>
                   <button
                     onClick={() => handleEdit(slide)}
-                    className="rounded-md border border-qala-champagne bg-qala-cream p-2 text-qala-espresso shadow hover:bg-qala-champagne"
+                    className="rounded-md border border-nbt-champagne bg-nbt-cream p-2 text-nbt-espresso shadow hover:bg-nbt-champagne"
                   >
                     Edit
                   </button>

@@ -7,6 +7,8 @@ import { setCredentials } from "../authSlice";
 import { Turnstile } from '@marsidev/react-turnstile';
 import PasswordInput from "../../../components/PasswordInput";
 
+const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY;
+
 export default function AdminLoginPage() {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [submitting, setSubmitting] = useState(false);
@@ -57,13 +59,13 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-qala-cream px-4 py-10">
-      <div className="w-full max-w-md border border-qala-champagne bg-white p-8 shadow-sm">
+    <div className="flex min-h-screen items-center justify-center bg-nbt-cream px-4 py-10">
+      <div className="w-full max-w-md border border-nbt-champagne bg-white p-8 shadow-sm">
         <div className="mb-8 text-center">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-qala-bronze">
-            Qala
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-nbt-bronze">
+            NBT
           </p>
-          <h1 className="text-2xl font-serif font-bold text-qala-espresso">Admin Login</h1>
+          <h1 className="text-2xl font-serif font-bold text-nbt-espresso">Admin Login</h1>
           <p className="text-sm text-neutral-500 mt-2">
             Sign in to access the admin panel.
           </p>
@@ -104,7 +106,7 @@ export default function AdminLoginPage() {
           
           <div className="py-2 flex justify-center">
             <Turnstile 
-              siteKey="0x4AAAAAAEyCT9dIF1IcOxCK" 
+              siteKey={turnstileSiteKey}
               onSuccess={(token) => setTurnstileToken(token)}
               onExpire={() => setTurnstileToken(null)}
             />
