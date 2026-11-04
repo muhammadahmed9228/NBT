@@ -1460,15 +1460,13 @@
     overflow-x: auto;
   }
 }
-@utility hide-netlify-badge {
-    iframe[src*="netlify"], 
-    div[id*="netlify"], 
-    div[class*="netlify"],
-    [data-netlify-badge] {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-    }
+iframe[src*="netlify"], 
+div[id*="netlify"], 
+div[class*="netlify"],
+[data-netlify-badge] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }
 
