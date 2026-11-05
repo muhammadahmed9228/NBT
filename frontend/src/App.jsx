@@ -56,49 +56,12 @@ import ServerErrorPage from "./pages/ServerErrorPage";
 export default function App() {
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   // Global authentication check on app load/refresh
-  //   getMeApi()
-  //     .then((res) => dispatch(setCredentials(res.data)))
-  //     .catch(() => dispatch(logoutSuccess()))
-  //     .finally(() => dispatch(setLoading(false)));
-  // }, [dispatch]);
-
-useEffect(() => {
+  useEffect(() => {
     // Global authentication check on app load/refresh
     getMeApi()
       .then((res) => dispatch(setCredentials(res.data)))
       .catch(() => dispatch(logoutSuccess()))
       .finally(() => dispatch(setLoading(false)));
-
-    // Netlify Badge auto-remover logic
-    const purgeNetlifyBadge = () => {
-      // Direct targeting: wrapper, button, element, or iframe container
-      const targets = document.querySelectorAll(
-        "#nl-badge, .nl-wrap, .nl-badge, iframe[src*='netlify'], iframe[id*='netlify']"
-      );
-
-      targets.forEach((el) => {
-        el.style.setProperty("display", "none", "important");
-        el.style.setProperty("visibility", "hidden", "important");
-        el.style.setProperty("opacity", "0", "important");
-        el.remove();
-      });
-    };
-
-    purgeNetlifyBadge();
-
-    // DOM Observer tab tak observe karega jab tak Netlify badge load hota hai
-    const observer = new MutationObserver(() => {
-      purgeNetlifyBadge();
-    });
-
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
-
-    return () => observer.disconnect();
   }, [dispatch]);
 
   return (
